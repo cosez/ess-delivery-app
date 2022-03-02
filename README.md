@@ -5,7 +5,7 @@ Grupo 6
 2. Charles Matheus de Sousa Alves(cmsa)
 3. Enzo Gurgel Bissoli(egb2)
 4. Vinícius Lima Ventura(vlv2)
-5. 
+5. Pedro Henrique Sarmento de Paula (phsp)
 
 
 # Estrutura do projeto a ser utilizado na disciplina de ESS
