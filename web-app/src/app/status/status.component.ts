@@ -43,5 +43,14 @@ export class StatusComponent implements OnInit {
     this.status = new Status();
     this.status.update(order);
   }
+  update(order: Status): void {
+    this.statusService.updateStatusList(order)
+      .then(result => {
+        if (result) {
+          this.updateStatus(<Status>result);
+        }
+
+      })
+      .catch(error => alert(error));
   }
 }
