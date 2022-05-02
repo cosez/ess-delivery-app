@@ -4,4 +4,6 @@ import { Status } from './status'
 
 @Injectable()
 export class StatusService {
+  private headers = new Headers({ 'Content-Type': 'application/json' });
+  private baseURL = 'http://localhost:3000';
 }
