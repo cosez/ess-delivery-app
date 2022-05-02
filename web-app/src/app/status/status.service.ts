@@ -21,4 +21,12 @@ export class StatusService {
         .then(res => res.json() as Status[])
         .catch(this.catch);
     }
+    addStatus(order: Status): Promise<Status[]> {
+      return this.htttp.post(this.baseURL + "/restaurant/status/add", JSON.stringify(order), {headers: this.headers})
+        .toPromise()
+        .then(res => {
+          if (res.status == 200) {return order;} else {return null;}
+        })
+        .catch(this.catch);
+    }
 }
