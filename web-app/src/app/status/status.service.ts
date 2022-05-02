@@ -37,4 +37,8 @@ export class StatusService {
         })
         .catch(this.catch);
     }
+    private catch(erro: any): Promise<any>{
+    console.error('Oops, something went wrong',erro);
+    return Promise.reject(erro.message || erro);
+  }
 }
