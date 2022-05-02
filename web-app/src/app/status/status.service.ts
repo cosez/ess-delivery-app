@@ -15,4 +15,10 @@ export class StatusService {
       })
       .catch(this.catch);
   }
+    getStatusList(): Promise<Status[]> {
+      return this.htttp.get(this.baseURL + "/restaurant/status")
+        .toPromise()
+        .then(res => res.json() as Status[])
+        .catch(this.catch);
+    }
 }
