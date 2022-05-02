@@ -4,9 +4,12 @@ import { Status } from './status'
 
 @Injectable()
 export class StatusService {
+
   private headers = new Headers({ 'Content-Type': 'application/json' });
   private baseURL = 'http://localhost:3000';
+
   constructor(private htttp: Http) { }
+
   updateStatusList(order: Status): Promise<Status> {
     return this.htttp.put(this.baseURL + "/restaurant/status", JSON.stringify(order), {headers: this.headers})
       .toPromise()
@@ -15,12 +18,14 @@ export class StatusService {
       })
       .catch(this.catch);
   }
+
     getStatusList(): Promise<Status[]> {
       return this.htttp.get(this.baseURL + "/restaurant/status")
         .toPromise()
         .then(res => res.json() as Status[])
         .catch(this.catch);
     }
+
     addStatus(order: Status): Promise<Status[]> {
       return this.htttp.post(this.baseURL + "/restaurant/status/add", JSON.stringify(order), {headers: this.headers})
         .toPromise()
@@ -29,6 +34,7 @@ export class StatusService {
         })
         .catch(this.catch);
     }
+
     removeStatus(order: Status): Promise<Status[]> {
       return this.htttp.post(this.baseURL + "/restaurant/status/remove", JSON.stringify(order), {headers: this.headers})
         .toPromise()
@@ -37,6 +43,8 @@ export class StatusService {
         })
         .catch(this.catch);
     }
+
+
     private catch(erro: any): Promise<any>{
     console.error('Oops, something went wrong',erro);
     return Promise.reject(erro.message || erro);
