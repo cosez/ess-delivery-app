@@ -39,5 +39,9 @@ export class StatusComponent implements OnInit {
   removeStatus(order: Status): void {
     this.statusList.filter(statusTest => (statusTest.id != order.id));
   }
+  cloneStatus(order: Status): void {
+    this.status = new Status();
+    this.status.update(order);
+  }
   }
 }
