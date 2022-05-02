@@ -15,5 +15,14 @@ import { StatusService } from './status.service'
 export class StatusComponent implements OnInit {
   constructor(private statusService: StatusService) { }
 
+  status: Status = new Status
+
+  statusList: Status[] = [];
+
+  ngOnInit(): void {
+    this.statusService.getStatusList()
+      .then(results => this.statusList = results)
+      .catch(erro => alert(erro));
+  }
   }
 }
