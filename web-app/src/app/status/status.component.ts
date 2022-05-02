@@ -62,4 +62,15 @@ export class StatusComponent implements OnInit {
         }
       })
   }
+  Reset(): void {
+    this.cloneStatus;
+    this.status.statusVal = 0;
+    this.statusService.updateStatusList(this.status)
+      .then(result => {
+        if (result) {
+          this.removeStatus(<Status>result);
+        }
+      })
+      .catch(error => alert(error));
+  }
 }
