@@ -53,4 +53,13 @@ export class StatusComponent implements OnInit {
       })
       .catch(error => alert(error));
   }
+  show(): void {
+    this.statusService.getStatusList()
+      .then(result => {
+        if (result) {
+
+          //TODO show something for the user
+        }
+      })
+  }
 }
