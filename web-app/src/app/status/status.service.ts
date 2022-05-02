@@ -29,4 +29,12 @@ export class StatusService {
         })
         .catch(this.catch);
     }
+    removeStatus(order: Status): Promise<Status[]> {
+      return this.htttp.post(this.baseURL + "/restaurant/status/remove", JSON.stringify(order), {headers: this.headers})
+        .toPromise()
+        .then(res => {
+          if (res.status == 200) {return null;} else {return order;}
+        })
+        .catch(this.catch);
+    }
 }
