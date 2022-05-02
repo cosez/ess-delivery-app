@@ -36,5 +36,8 @@ export class StatusComponent implements OnInit {
   updateStatus(order: Status): void {
     this.statusList.map(statusTest => (statusTest.id == order.id ? statusTest = order : statusTest));
   }
+  removeStatus(order: Status): void {
+    this.statusList.filter(statusTest => (statusTest.id != order.id));
+  }
   }
 }
