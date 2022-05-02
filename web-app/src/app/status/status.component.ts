@@ -33,5 +33,8 @@ export class StatusComponent implements OnInit {
       })
       .catch(error => alert(error));
   }
+  updateStatus(order: Status): void {
+    this.statusList.map(statusTest => (statusTest.id == order.id ? statusTest = order : statusTest));
+  }
   }
 }
