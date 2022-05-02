@@ -24,5 +24,14 @@ export class StatusComponent implements OnInit {
       .then(results => this.statusList = results)
       .catch(erro => alert(erro));
   }
+  createDummyOrder(order: Status): void {
+    this.statusService.updateStatusList(order)
+      .then(result => {
+        if (result) {
+          this.statusList.push(<Status>result)
+        }
+      })
+      .catch(error => alert(error));
+  }
   }
 }
