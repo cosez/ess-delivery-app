@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router} from '@angular/router'
-import { AuthenticationService } from '../service/authentication/authentication.service';
 import { NgModule } from '@angular/core';
 
 
@@ -15,6 +13,7 @@ import { StatusService } from './status.service'
 export class StatusComponent implements OnInit {
   constructor(private statusService: StatusService) { }
 
+
   status: Status = new Status
 
   statusList: Status[] = [];
@@ -24,6 +23,7 @@ export class StatusComponent implements OnInit {
       .then(results => this.statusList = results)
       .catch(erro => alert(erro));
   }
+
   createDummyOrder(order: Status): void {
     this.statusService.updateStatusList(order)
       .then(result => {
@@ -33,16 +33,22 @@ export class StatusComponent implements OnInit {
       })
       .catch(error => alert(error));
   }
+
   updateStatus(order: Status): void {
     this.statusList.map(statusTest => (statusTest.id == order.id ? statusTest = order : statusTest));
   }
+
+
+
   removeStatus(order: Status): void {
     this.statusList.filter(statusTest => (statusTest.id != order.id));
   }
+
   cloneStatus(order: Status): void {
     this.status = new Status();
     this.status.update(order);
   }
+
   update(order: Status): void {
     this.statusService.updateStatusList(order)
       .then(result => {
@@ -53,6 +59,7 @@ export class StatusComponent implements OnInit {
       })
       .catch(error => alert(error));
   }
+
   show(): void {
     this.statusService.getStatusList()
       .then(result => {
@@ -62,6 +69,7 @@ export class StatusComponent implements OnInit {
         }
       })
   }
+
   Reset(): void {
     this.cloneStatus;
     this.status.statusVal = 0;
@@ -73,4 +81,7 @@ export class StatusComponent implements OnInit {
       })
       .catch(error => alert(error));
   }
+
+
+
 }
