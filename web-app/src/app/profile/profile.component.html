@@ -1,5 +1,11 @@
 <div class="profile-wrapper">
-    <button type="button" class="btn btn-outline-primary btn-sm"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Voltar</button>
+
+    <div class="header-buttons">
+      <button type="button" (click)="backToLogin()" class="btn btn-outline-primary btn-sm"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Voltar</button>
+      <button type="button" (click)="goToStatusChange()" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Mudança de status do pedido</button>
+    </div>
+    
+    
     <div class="profile-header d-flex flex-row">
         <img src="https://cdn.iconscout.com/icon/free/png-256/restaurant-1495593-1267764.png" class="header-image img-thumbnail" >
         <h2 class="restaurant-name">{{restaurante.nome_restaurante}}</h2>

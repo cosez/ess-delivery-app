@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'cadastro', component: CadastroComponent}];
 =======
   { path: 'cadastro', component: CadastroComponent },
-  // { path: 'status', component: StatusComponent },
+  { path: 'status', component: StatusComponent },
   { path: 'pedido', component: PedidoComponent }];
 >>>>>>> f1a25e0 (add authentication and delete actions)
 
