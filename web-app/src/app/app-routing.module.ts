@@ -7,10 +7,17 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
+<<<<<<< HEAD
   { path: 'profile', component: ProfileComponent },
   { path: 'cadastro', component: CadastroComponent}];
+=======
+  { path: 'cadastro', component: CadastroComponent },
+  // { path: 'status', component: StatusComponent },
+  { path: 'pedido', component: PedidoComponent }];
+>>>>>>> f1a25e0 (add authentication and delete actions)
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
