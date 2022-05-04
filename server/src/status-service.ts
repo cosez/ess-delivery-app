@@ -6,9 +6,10 @@ export class Status_service {
 
     addStatus(order: Status): Status {
     let status_state = new Status();
-     if(this.isUniqueID){
-        let status_state = order;
-         this.statusList.push(status_state);
+        this.tempStatus.clone(order);
+        if(this.tempStatus.isUniqueID()){
+        status_state = this.tempStatus;
+         this.tempStatus.pushStatus();
      }
     return status_state;
     }
