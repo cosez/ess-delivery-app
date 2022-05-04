@@ -26,11 +26,11 @@ export class Status_service {
 
     updateStatus(order: Status): Status {
         let status_state = new Status();
-        if(this.isUniqueID){ // statusVal == MADE, ACCEPT and READY
-            let index = this.statusList.findIndex(testID => (testID.id == order.id));
-            this.statusList[index].statusVal++;
-            status_state = this.statusList[index];
+        this.tempStatus.clone(order);
+        if(!this.tempStatus.isUniqueID()){ // statusVal == MADE, ACCEPT and READY
+            status_state = this.tempStatus.modStatus(this.tempStatus);
         }
+
         return status_state;
     }
 
