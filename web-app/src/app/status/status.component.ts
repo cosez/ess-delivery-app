@@ -18,16 +18,17 @@ export class StatusComponent implements OnInit {
   statusList: Status[] = [];
 
   ngOnInit(): void {
-    this.statusService.getStatusList()
+    this.statusService.getStatusList() //TODO test
       .then(results => this.statusList = results)
       .catch(erro => alert(erro));
   }
 
-  createDummyOrder(order: Status): void {
-    this.statusService.updateStatusList(order)
+  addSubmit(order: NgForm): void {
+    this.status.update(<Status> order.value);
+    this.statusService.addStatus(this.status)
       .then(result => {
         if (result) {
-          this.statusList.push(<Status>result)
+          this.statusList.push(result);
         }
       })
       .catch(error => alert(error));
