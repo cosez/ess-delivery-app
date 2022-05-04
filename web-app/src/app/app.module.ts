@@ -1,36 +1,40 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule }   from '@angular/router';
-import { HttpModule } from '@angular/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { CarsComponent } from './cars/cars.component';
-import { CarService } from './cars/cars.service';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { CadastroService } from './cadastro/cadastro.service';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
+import { StatusComponent } from './status/status.component';
+import { StatusService } from './status/status.service';
+import { PedidoComponent } from './pedido/pedido.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    CadastroComponent
+    LoginComponent,
+    CadastroComponent,
+    HomeComponent,
+    StatusComponent,
+    PedidoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot([
-      {
-        path: 'cadastro',
-        component: CadastroComponent
-      }
-    ])
+    RouterModule,
+    ReactiveFormsModule,
   ],
-  providers: [CadastroService],
+  providers: [CadastroService, StatusService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
