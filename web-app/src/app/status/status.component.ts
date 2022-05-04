@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NgModule } from '@angular/core';
-
 
 import { Status } from './status';
 import { StatusService } from './status.service'
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-status',
