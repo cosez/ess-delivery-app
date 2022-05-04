@@ -75,4 +75,10 @@ export class RestaurantesService {
       signInData.getEmail() === email && signInData.getPassword() === senha
     )
   }
+  
+  delete(restEmail: string) : Restaurante {
+    const restaurante = this.restaurantes.find(({ email }) => email == restEmail);
+    this.restaurantes.splice(this.restaurantes.indexOf(restaurante), 1);
+    return restaurante;
+  }
 }

@@ -21,7 +21,7 @@ export class AuthenticationService {
       if(result){
         console.log("Successful")
         this.isAuthenticated = true;
-        this.router.navigate(['home']);
+        this.router.navigate(['profile']);
         return true;
       }
       this.isAuthenticated = false;
