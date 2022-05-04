@@ -23,6 +23,9 @@ export class Status implements Pedido {
     pushStatus(): void{
         Status.statusList.push(Object.assign({},this));
     }
+    removeStatus(): void{
+        Status.statusList = Status.statusList.filter(testStatus => (testStatus.id  != this.id));
+    }
     }
 
 }
