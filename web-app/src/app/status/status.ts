@@ -1,10 +1,18 @@
 import { Pedido } from './pedido';
 
+
+enum statusVal {
+  INVALIDO=-1,
+  FEITO=0,
+  CONFIRMADO=1,
+  PRONTO=2
+};
+
 export class Status implements Pedido  {
     cpf: string; // Suppose that order has being unpacked in cpf, cnpj and id
     cnpj: string;
     id: number;
-    statusVal: number = 0;
+    state: statusVal;
 
 
     constructor(){
