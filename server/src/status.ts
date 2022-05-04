@@ -35,6 +35,8 @@ export class Status implements Pedido {
     returnStatus(): Status[]{
         return Status.statusList;
     }
+    isUniqueID(): boolean {
+        return !Status.statusList.some(testID => (testID.id == this.id));
     }
 
 }
