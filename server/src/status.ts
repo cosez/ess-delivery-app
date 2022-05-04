@@ -14,11 +14,12 @@ export class Status implements Pedido {
         this.state = 0; //validation is implicit
     }
 
-    update(order: Status){
-        this.cpf = order.cpf;
-        this.cnpj = order.cnpj;
-        this.id = order.id;
-        this.statusVal=0;
+    clone(order: Status){
+        this.cpf = <string> order.cpf;
+        this.cnpj = <string> order.cnpj;
+        this.id = <number> order.id;
+        this.state= <number> order.state;
+    }
     }
 
 }
