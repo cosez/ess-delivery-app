@@ -6,15 +6,13 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { StatusComponent } from './status/status.component';
 
+import { PedidoComponent } from './pedido/pedido.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent, // mude isso para ter acesso a rota principal
-  children: [
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
-  { path: 'cadastro', component: CadastroComponent},
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard]}]
-  }
-  ]
+  { path: 'cadastro', component: CadastroComponent },
+  { path: 'pedido', component: PedidoComponent }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

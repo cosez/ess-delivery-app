@@ -31,10 +31,11 @@ export class LoginComponent implements OnInit {
   private checkCredentials(signInForm: NgForm) {
 
     const singInData = new SingInData(signInForm.value.email, signInForm.value.password);
-    if (!this.authenticationService.authenticate(singInData)) {
-      this.isFormValid = false;
-      this.areCredentialsInvalid = true;
-    }
+    this.authenticationService.authenticate(singInData).then().catch((ret)=>{
+      if(ret.status == 401){
+        this.isFormValid = false;
+        this.areCredentialsInvalid = true;
+      }
+    })
   }
 }
-
