@@ -58,7 +58,7 @@ Feature: As a represetante de um restaurante
 		When eu seleciono a opção cadastrar
 		Then eu vejo uma mensagem de que o campo "Nome do Restaurante" não foi preenchido, logo o cadastro não foi realizado
 
-	Scenario: Inserção de restaurante com campo mal-preenchido
+	Scenario: Inserção de restaurante com campo de "CNPJ" mal-preenchido
 		Given estou na tela de cadastro de restaurantes
 		When eu preencho o campo de "CNPJ" com "98.765.432/0007"
 		When eu preencho o campo de "Nome do Restaurante" com "Bar da Caldeirada"
@@ -75,3 +75,93 @@ Feature: As a represetante de um restaurante
 		When eu preencho o campo de "Senha" com "potato"
 		When eu seleciono a opção cadastrar
 		Then eu vejo uma mensagem de que o campo "CNPJ" não foi preenchido corretamente, logo o cadastro não foi realizado
+
+	Scenario: Inserção de restaurante com campo de "CEP" mal-preenchido
+		Given estou na tela de cadastro de restaurantes
+		When eu preencho o campo de "CNPJ" com "98.765.432/0001-10"
+		When eu preencho o campo de "Nome do Restaurante" com "Bar da Caldeirada"
+		When eu preencho o campo de "Rua" com "Capitão Senna"
+		When eu preencho o campo de "Número" com "1"
+		When eu preencho o campo de "Cidade" com "Aldeia"
+		When eu preencho o campo de "CEP" com "23332"
+		When eu preencho o campo de "Complemento" com "Em frente ao pé de jambo"
+		When eu preencho o campo de "Hora de Abrir" com "09:00"
+		When eu preencho o campo de "Hora de Fechar" com "18:00"
+		When eu preencho o campo de "Nome do Responsável" com "José Paulo da Costa"
+		When eu preencho o campo de "Telefone do Responsável" com "(81) 98989-0011"
+		When eu preencho o campo de "E-mail para Contato" com "jpc@mail.com"
+		When eu preencho o campo de "Senha" com "potato"
+		When eu seleciono a opção cadastrar
+		Then eu vejo uma mensagem de que o campo "CEP" não foi preenchido corretamente, logo o cadastro não foi realizado
+
+	Scenario: Inserção de restaurante com campo de "Hora de Abrir" mal-preenchido
+		Given estou na tela de cadastro de restaurantes
+		When eu preencho o campo de "CNPJ" com "98.765.432/0001-10"
+		When eu preencho o campo de "Nome do Restaurante" com "Bar da Caldeirada"
+		When eu preencho o campo de "Rua" com "Capitão Senna"
+		When eu preencho o campo de "Número" com "1"
+		When eu preencho o campo de "Cidade" com "Aldeia"
+		When eu preencho o campo de "CEP" com "23332-233"
+		When eu preencho o campo de "Complemento" com "Em frente ao pé de jambo"
+		When eu preencho o campo de "Hora de Abrir" com "900"
+		When eu preencho o campo de "Hora de Fechar" com "18:00"
+		When eu preencho o campo de "Nome do Responsável" com "José Paulo da Costa"
+		When eu preencho o campo de "Telefone do Responsável" com "(81) 98989-0011"
+		When eu preencho o campo de "E-mail para Contato" com "jpc@mail.com"
+		When eu preencho o campo de "Senha" com "potato"
+		When eu seleciono a opção cadastrar
+		Then eu vejo uma mensagem de que o campo "Hora de Abrir" não foi preenchido corretamente, logo o cadastro não foi realizado
+
+	Scenario: Inserção de restaurante com campo de "Hora de Fechar" mal-preenchido
+		Given estou na tela de cadastro de restaurantes
+		When eu preencho o campo de "CNPJ" com "98.765.432/0001-10"
+		When eu preencho o campo de "Nome do Restaurante" com "Bar da Caldeirada"
+		When eu preencho o campo de "Rua" com "Capitão Senna"
+		When eu preencho o campo de "Número" com "1"
+		When eu preencho o campo de "Cidade" com "Aldeia"
+		When eu preencho o campo de "CEP" com "23332-233"
+		When eu preencho o campo de "Complemento" com "Em frente ao pé de jambo"
+		When eu preencho o campo de "Hora de Abrir" com "09:00"
+		When eu preencho o campo de "Hora de Fechar" com "18"
+		When eu preencho o campo de "Nome do Responsável" com "José Paulo da Costa"
+		When eu preencho o campo de "Telefone do Responsável" com "(81) 98989-0011"
+		When eu preencho o campo de "E-mail para Contato" com "jpc@mail.com"
+		When eu preencho o campo de "Senha" com "potato"
+		When eu seleciono a opção cadastrar
+		Then eu vejo uma mensagem de que o campo "Hora de Fechar" não foi preenchido corretamente, logo o cadastro não foi realizado
+
+	Scenario: Inserção de restaurante com campo de "Telefone do Responsável" mal-preenchido
+		Given estou na tela de cadastro de restaurantes
+		When eu preencho o campo de "CNPJ" com "98.765.432/0001-10"
+		When eu preencho o campo de "Nome do Restaurante" com "Bar da Caldeirada"
+		When eu preencho o campo de "Rua" com "Capitão Senna"
+		When eu preencho o campo de "Número" com "1"
+		When eu preencho o campo de "Cidade" com "Aldeia"
+		When eu preencho o campo de "CEP" com "23332-233"
+		When eu preencho o campo de "Complemento" com "Em frente ao pé de jambo"
+		When eu preencho o campo de "Hora de Abrir" com "09:00"
+		When eu preencho o campo de "Hora de Fechar" com "18:00"
+		When eu preencho o campo de "Nome do Responsável" com "José Paulo da Costa"
+		When eu preencho o campo de "Telefone do Responsável" com "989890011"
+		When eu preencho o campo de "E-mail para Contato" com "jpc@mail.com"
+		When eu preencho o campo de "Senha" com "potato"
+		When eu seleciono a opção cadastrar
+		Then eu vejo uma mensagem de que o campo "Telefone do Responsável" não foi preenchido corretamente, logo o cadastro não foi realizado
+
+	Scenario: Inserção de restaurante com campo de "E-mail para Contato" mal-preenchido
+		Given estou na tela de cadastro de restaurantes
+		When eu preencho o campo de "CNPJ" com "98.765.432/0001-10"
+		When eu preencho o campo de "Nome do Restaurante" com "Bar da Caldeirada"
+		When eu preencho o campo de "Rua" com "Capitão Senna"
+		When eu preencho o campo de "Número" com "1"
+		When eu preencho o campo de "Cidade" com "Aldeia"
+		When eu preencho o campo de "CEP" com "23332-233"
+		When eu preencho o campo de "Complemento" com "Em frente ao pé de jambo"
+		When eu preencho o campo de "Hora de Abrir" com "09:00"
+		When eu preencho o campo de "Hora de Fechar" com "18:00"
+		When eu preencho o campo de "Nome do Responsável" com "José Paulo da Costa"
+		When eu preencho o campo de "Telefone do Responsável" com "(81) 98989-0011"
+		When eu preencho o campo de "E-mail para Contato" com "jpc.com"
+		When eu preencho o campo de "Senha" com "potato"
+		When eu seleciono a opção cadastrar
+		Then eu vejo uma mensagem de que o campo "E-mail para Contato" não foi preenchido corretamente, logo o cadastro não foi realizado

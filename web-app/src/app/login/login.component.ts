@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   constructor(private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
+    this.authenticationService.logout();
   }
 
   onSubmit(signInForm: NgForm) {

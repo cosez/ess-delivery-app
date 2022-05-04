@@ -58,25 +58,6 @@
 
 <script>document.write(restaurante)</script>
 
-<table>
-   <tr *ngIf="restaurantes.length > 0">
-      <th>Nome</th>
-      <th>CNPJ</th>
-      <th>Cidade</th>
-      <th>Rua</th>
-      <th>Hora de Abrir</th>
-      <th>Hora de Fechar</th>
-   </tr>
-   <tr *ngFor="let rest of restaurantes">
-      <td id="rest-{{rest.cnpj}}">{{rest.nome_restaurante}}</td>
-      <td>{{rest.cnpj}}</td>
-      <td>{{rest.cidade}}</td>
-      <td>{{rest.rua}}</td>
-      <td>{{rest.horario_inicio}}</td>
-      <td>{{rest.horario_fim}}</td>
-   </tr>
-</table>
-
 <div class="popup" *ngIf='this.error'>
    <div class = "default_error" *ngIf = 'this.error.status != 401'>
       <div class = "error_text">{{this.error.message}}</div>
