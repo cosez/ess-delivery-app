@@ -1,10 +1,11 @@
 import {Pedido} from './pedido';
 
 export class Status implements Pedido {
+    public static statusList: Status[] = [];
     cpf: string; // Suppose that order has being unpacked in cpf, cnpj and id
     cnpj: string;
     id: number;
-    statusVal: number = 0;
+    state: number = 0;
 
     constructor() {
         this.cpf = "";
