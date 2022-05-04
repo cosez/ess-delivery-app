@@ -7,8 +7,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { CadastroComponent } from './cadastro/cadastro.component';
+import { ProfileComponent } from './profile/profile.component';
 import { CadastroService } from './cadastro/cadastro.service';
+import { CadastroComponent } from './cadastro/cadastro.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
@@ -23,6 +24,7 @@ import { PedidoComponent } from './pedido/pedido.component';
     LoginComponent,
     CadastroComponent,
     HomeComponent,
+    ProfileComponent,
     StatusComponent,
     PedidoComponent
     ProfileComponent
