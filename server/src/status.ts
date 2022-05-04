@@ -32,6 +32,9 @@ export class Status implements Pedido {
             status_state.state = ++Status.statusList[index].state;
         return status_state;
     }
+    returnStatus(): Status[]{
+        return Status.statusList;
+    }
     }
 
 }
