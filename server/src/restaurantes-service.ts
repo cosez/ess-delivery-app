@@ -70,7 +70,6 @@ export class RestaurantesService {
   }
 
   authenticate(signInData:SingInData) : Restaurante{
-    console.log(signInData.getEmail(), signInData.getPassword(), signInData)
     return this.restaurantes.find(({email, senha}) => 
       signInData.getEmail() === email && signInData.getPassword() === senha
     )
