@@ -27,6 +27,7 @@ import { PedidoComponent } from './pedido/pedido.component';
     ProfileComponent,
     StatusComponent,
     PedidoComponent
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
