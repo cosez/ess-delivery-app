@@ -26,6 +26,12 @@ export class Status implements Pedido {
     removeStatus(): void{
         Status.statusList = Status.statusList.filter(testStatus => (testStatus.id  != this.id));
     }
+    modStatus(status_state: Status): Status{
+        let index = Status.statusList.findIndex(testStatus => (testStatus.id  == this.id));
+        if(Status.statusList[index].state<2)
+            status_state.state = ++Status.statusList[index].state;
+        return status_state;
+    }
     }
 
 }
