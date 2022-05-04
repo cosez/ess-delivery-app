@@ -20,6 +20,9 @@ export class Status implements Pedido {
         this.id = <number> order.id;
         this.state= <number> order.state;
     }
+    pushStatus(): void{
+        Status.statusList.push(Object.assign({},this));
+    }
     }
 
 }
