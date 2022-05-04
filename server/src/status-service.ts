@@ -3,9 +3,6 @@ import {Status} from "./status"
 export class Status_service {
     tempStatus: Status = new Status();
 
-    isUniqueID(targetID: number): boolean {
-        return this.statusList.some(testID => testID.id == targetID);
-    }
 
     addStatus(order: Status): Status {
     let status_state = new Status();
