@@ -9,13 +9,12 @@
 
                 <a class="nav-link" routerLink="../cadastro">Cadastre-se</a>
                    
-               
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
             
-                
                 <div class="alert alert-danger" role="alert" *ngIf="isFormValid">
                     Please fill all fields.
                 </div>
+                
                 <div class="alert alert-danger" role="alert" *ngIf="areCredentialsInvalid">
                     Invalid user or password.
                 </div>

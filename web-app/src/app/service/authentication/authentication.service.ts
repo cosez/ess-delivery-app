@@ -17,10 +17,9 @@ export class AuthenticationService {
   constructor(private router: Router, private http: Http) { }
 
   authenticate(singInData: SingInData): Promise<Boolean>{
-    console.log("AAAAAAAA")
     return this.checkCredentials(singInData).then((result)=>{
       if(result){
-        console.log("Autentiquei")
+        console.log("Successful")
         this.isAuthenticated = true;
         this.router.navigate(['home']);
         return true;
