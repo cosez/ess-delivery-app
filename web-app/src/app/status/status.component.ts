@@ -34,14 +34,23 @@ export class StatusComponent implements OnInit {
       .catch(error => alert(error));
   }
 
-  updateStatus(order: Status): void {
-    this.statusList.map(statusTest => (statusTest.id == order.id ? statusTest = order : statusTest));
+  removeSubmit(order: NgForm): void {
+    this.status.update(<Status> order.value);
+    this.statusService.removeStatus(this.status)
+      .then(result => {
+        if (result) {
+          this.removeStatus(result);
+        }
+      })
+      .catch(error => alert(error));
   }
 
-
+  updateStatus(order: Status): void {
+    this.statusList = this.statusList.map(statusTest => (statusTest.id == order.id ? statusTest = order : statusTest));
+  }
 
   removeStatus(order: Status): void {
-    this.statusList.filter(statusTest => (statusTest.id != order.id));
+    this.statusList = this.statusList.filter(statusTest => (statusTest.id != order.id));
   }
 
   cloneStatus(order: Status): void {
