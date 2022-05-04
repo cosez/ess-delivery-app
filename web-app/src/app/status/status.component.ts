@@ -58,8 +58,15 @@ export class StatusComponent implements OnInit {
     this.status.update(order);
   }
 
-  update(order: Status): void {
-    this.statusService.updateStatusList(order)
+  findStatus(order: Status[], order2: Status): number{
+    return order.findIndex(testStatus => (testStatus.cnpj == order2.cnpj
+                                         && testStatus.cpf == order2.cpf
+                                         && testStatus.id == order2.id))
+  }
+
+  updateSubmit(order: NgForm): void {
+    this.status.update(<Status> order.value);
+    this.statusService.updateStatusList(this.statusList[this.findStatus(this.statusList,this.status)])
       .then(result => {
         if (result) {
           this.updateStatus(<Status>result);
