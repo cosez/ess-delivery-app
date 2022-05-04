@@ -17,6 +17,11 @@
         }
     }
 
+    .header-buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+
     .form-row {
         display: flex;
         justify-content: space-between;

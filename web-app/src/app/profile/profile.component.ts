@@ -36,5 +36,13 @@ export class ProfileComponent implements OnInit {
          .then(() => this.router.navigateByUrl('/login'))
          .catch(erro => alert(erro));
   }
+
+  backToLogin() {
+    this.router.navigateByUrl('/login')
+  }
+
+  goToStatusChange() {
+    this.router.navigateByUrl('/status')
+  }
 }
 

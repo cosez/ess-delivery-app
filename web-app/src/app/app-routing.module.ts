@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
   { path: 'cadastro', component: CadastroComponent },
-  // { path: 'status', component: StatusComponent },
+  { path: 'status', component: StatusComponent },
   { path: 'pedido', component: PedidoComponent }];
 
 @NgModule({
