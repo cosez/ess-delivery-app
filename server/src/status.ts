@@ -11,7 +11,7 @@ export class Status implements Pedido {
         this.cpf = "";
         this.cnpj ="";
         this.id = -1;
-        this.statusVal = 0; //validation is implicit
+        this.state = 0; //validation is implicit
     }
 
     update(order: Status){
