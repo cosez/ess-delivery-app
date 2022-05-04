@@ -13,7 +13,7 @@ export class StatusComponent implements OnInit {
   constructor(private statusService: StatusService) { }
 
 
-  status: Status = new Status
+  status: Status = new Status();
 
   statusList: Status[] = [];
 
