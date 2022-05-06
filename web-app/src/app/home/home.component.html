@@ -1,6 +1,91 @@
-<main role="main" class="container">
+<main onload=getRestaurantes() role="main" class="container">
     <div class=" jumbotron">
-        <h1>home</h1>
-        <p class="lead">text</p>
+      
+        <div class="container">
+            <div class="row mb-5">
+              <div class="col">
+                <h1 class="display-4">Aplicar filtros</h1>
+              </div>
+            </div>
+        
+            <div class="row mb-2">  
+              <div class="col-md-8">
+                <input type="text" class="form-control" [(ngModel)]="cidadeRest" placeholder="Cidade" id="cidadeRest" />
+              </div>
+              <!--<div class="col-md-4 d-flex justify-content-end">
+                <button type="button" class="btn btn-primary" (click)="getRestaurantecnpj(cnpj)">
+                  <i class="fas fa-search">Pesquisa por Cidade</i>
+                </button>
+              </div>-->
+            </div>
+        
+            <div class="row  mb-5">
+              <div class="col-md-8">
+                <input type="text" class="form-control" [(ngModel)]="nome" placeholder="Nome" id="nome" />
+              </div>
+              <div class="col-md-4 d-flex justify-content-end">
+                <button type="button" class="btn btn-primary" (click)="getPesquisaFiltrada(nome, cidadeRest)">
+                  <i class="fas fa-search">Pesquisar</i>
+                </button>
+              </div>
+            </div>
+            
+            <div id="search-component">
+              <label for="search-box">Pesquisa Rápida</label>
+              <input #searchBox id="search-box" (input)="getRestauranteByNameDinamica(searchBox.value)" />
+              <tbody class="search-result">
+                <tr *ngFor="let rest of resultadoPesquisaNomeDinamica">
+                    <td id="rest-{{rest.cnpj}}"><a routerLink="/login">{{rest.nome_restaurante}}</a></td>
+                 </tr>
+            </tbody>
+            </div>
+        
+          </div>
+        <div class="card w-100 my-5">
+            <div class="card-body">
+                <h1 class="card-title text-center">Lista de Restaurantes</h1>
+                <button class="btn btn-success mb-4 float-ent" routerLink="/cadastro">Cadastrar Novo</button>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>CNPJ</th>
+                            <th>CEP</th>
+                            <th>cidade</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="resultadoPesquisaFiltrada.length > 0">
+                        <tr *ngFor="let rest of resultadoPesquisaFiltrada">
+                            <td id="rest-{{rest.cnpj}}">{{rest.nome_restaurante}}</td>
+                            <td>{{rest.cnpj}}</td>
+                            <td>{{rest.cep}}</td>
+                            <td>{{rest.cidade}}</td>
+                            <td>
+                                <button class="btn btn-secondary">Infos<i class="fas fa fa-circle-info"></i></button>
+                            </td>
+                         </tr>
+                        
+                    </tbody>
+                    
+                  <tbody *ngIf="resultadoPesquisaFiltrada.length == 0 && ((nome == undefined && cidadeRest == undefined) || (nome == '' && cidadeRest == ''))">
+                  <tr *ngFor="let rest of restaurantes">
+                        <td id="rest-{{rest.cnpj}}">{{rest.nome_restaurante}}</td>
+                        <td>{{rest.cnpj}}</td>
+                        <td>{{rest.cep}}</td>
+                        <td>{{rest.cidade}}</td>
+                        <td>
+                            <button class="btn btn-secondary">Infos<i class="fas fa fa-circle-info"></i></button>
+                        </td>
+                     </tr>
+                    
+                </tbody>
+                 
+                  
+                  
+
+                </table>
+            </div>
+        </div>
     </div>
 </main>

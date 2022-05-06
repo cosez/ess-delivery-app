@@ -88,7 +88,7 @@ export class StatusComponent implements OnInit {
 
   Reset(): void {
     this.cloneStatus;
-    this.status.statusVal = 0;
+    this.status.state = 0;
     this.statusService.updateStatusList(this.status)
       .then(result => {
         if (result) {
