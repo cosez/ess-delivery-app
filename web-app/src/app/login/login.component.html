@@ -2,14 +2,14 @@
     <div class="card">
         <div class="card-body">
             <form class="form-signin" (ngSubmit)="onSubmit(signInForm)" #signInForm="ngForm">
-                <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+                <h1 class="h3 mb-3 font-weight-normal center">Login</h1>
                 <input type="email" id="inputEmail" name= email class="form-control" placeholder="Email address" required autofocus ngModel> 
                 
                 <input type="password" id="inputPassword"name = password class="form-control" placeholder="Password" required ngModel> 
 
-                <a class="nav-link" routerLink="../cadastro">Cadastre-se</a> 
-               
                 <button id="submit-login" class="btn btn-lg btn-primary btn-block" routerLink='../home'type="submit">Sign in</button>
+                
+                <a class="nav-link" routerLink="../cadastro">Cadastre-se</a> 
                 
                 <div id="alert-fields" class="alert alert-danger" role="alert" *ngIf="isFormValid">
                     Please fill all fields.
