@@ -3,6 +3,7 @@ import { Restaurante } from '../cadastro/restaurante';
 import { CadastroService } from '../cadastro/cadastro.service';
 import { AuthenticationService } from '../service/authentication/authentication.service';
 import { NgModule } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,13 +12,16 @@ import { NgModule } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private authenticationService: AuthenticationService, private cadastrosService: CadastroService) { }
+  constructor(private authenticationService: AuthenticationService, private cadastrosService: CadastroService, private actRoute: ActivatedRoute, private router: Router) { 
+  }
     restaurantes: Restaurante[] = [];
     restaurante: Restaurante = new Restaurante();
     resultadoPesquisaNomeDinamica: Restaurante[] = [];
     resultadoPesquisaFiltrada: Restaurante[] = [];
+    resultadoFilter: Restaurante[] = [];
 
   ngOnInit(): void {
+    
     this.restaurante = this.authenticationService.restaurante;
     this.getRestaurantes()
   }
@@ -46,14 +50,15 @@ export class HomeComponent implements OnInit {
 
   }
 
-  getPesquisaFiltrada(nome: string, cidadeRest:string): void{
-
-    if (nome == undefined){
+  getPesquisaFiltrada(nome: string, cidadeRest:string, filter = false): void{
+    if(nome == undefined){
       nome = ''
-    }if (cidadeRest == undefined){
+    }if(cidadeRest == undefined){
       cidadeRest = ''
+    }if ((nome == '' || cidadeRest == '') && (filter == false)){
+      this.resultadoPesquisaFiltrada = []
     }
-    if (nome != '' && cidadeRest != '') {
+    if (filter == true) {
       this.cadastrosService.getRestaurantes().then(res => {
         res.forEach(element => {
           if(element.nome_restaurante.toLowerCase().includes(nome.toLowerCase()) && element.cidade.toLowerCase().includes(cidadeRest.toLowerCase())){
@@ -61,26 +66,7 @@ export class HomeComponent implements OnInit {
           }
         });
         console.log(this.resultadoPesquisaFiltrada)
-      })
-      .catch(erro => alert(erro))
-    }else if (nome != '' && cidadeRest == '') {
-      this.cadastrosService.getRestaurantes().then(res => {
-        res.forEach(element => {
-          if(element.nome_restaurante.toLowerCase().includes(nome.toLowerCase())){
-            this.resultadoPesquisaFiltrada.push(element)
-          }
-        });
-        console.log(this.resultadoPesquisaFiltrada)
-      })
-      .catch(erro => alert(erro))
-    }else if (nome == '' && cidadeRest != '') {
-      this.cadastrosService.getRestaurantes().then(res => {
-        res.forEach(element => {
-          if(element.cidade.toLowerCase().includes(cidadeRest.toLowerCase())){
-            this.resultadoPesquisaFiltrada.push(element)
-          }
-        });
-        console.log(this.resultadoPesquisaFiltrada)
+        console.log(this.restaurantes)
       })
       .catch(erro => alert(erro))
     }
@@ -88,19 +74,3 @@ export class HomeComponent implements OnInit {
   }
 
 }
- 
-/*
-getRestauranteByName(nome: string): void{
-  if (nome != '') {
-    this.cadastrosService.getRestaurantes().then(res => {
-      res.forEach(element => {
-        if(element.nome_restaurante.toLowerCase().includes(nome.toLowerCase())){
-          this.resultadoPesquisaNome.push(element)
-        }
-      });
-    })
-    .catch(erro => alert(erro))
-  }
-  this.resultadoPesquisaNome = []
-}
-*/
