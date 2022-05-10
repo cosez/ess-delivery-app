@@ -12,11 +12,6 @@
               <div class="col-md-8">
                 <input type="text" class="form-control" [(ngModel)]="cidadeRest" placeholder="Cidade" id="cidadeRest" />
               </div>
-              <!--<div class="col-md-4 d-flex justify-content-end">
-                <button type="button" class="btn btn-primary" (click)="getRestaurantecnpj(cnpj)">
-                  <i class="fas fa-search">Pesquisa por Cidade</i>
-                </button>
-              </div>-->
             </div>
         
             <div class="row  mb-5">
@@ -24,7 +19,7 @@
                 <input type="text" class="form-control" [(ngModel)]="nome" placeholder="Nome" id="nome" />
               </div>
               <div class="col-md-4 d-flex justify-content-end">
-                <button type="button" class="btn btn-primary" (click)="getPesquisaFiltrada(nome, cidadeRest)">
+                <button type="button" class="btn btn-primary" (click)="getPesquisaFiltrada(nome, cidadeRest, true)">
                   <i class="fas fa-search">Pesquisar</i>
                 </button>
               </div>
@@ -35,7 +30,7 @@
               <input #searchBox id="search-box" (input)="getRestauranteByNameDinamica(searchBox.value)" />
               <tbody class="search-result">
                 <tr *ngFor="let rest of resultadoPesquisaNomeDinamica">
-                    <td id="rest-{{rest.cnpj}}"><a routerLink="/login">{{rest.nome_restaurante}}</a></td>
+                    <td id="rest-{{rest.cnpj}}"><a [routerLink]="['/profile', rest.cnpj]">{{rest.nome_restaurante}}</a></td>
                  </tr>
             </tbody>
             </div>
@@ -49,38 +44,45 @@
                     <thead>
                         <tr>
                             <th>Nome</th>
-                            <th>CNPJ</th>
                             <th>CEP</th>
-                            <th>cidade</th>
-                            <th></th>
+                            <th>Cidade</th>
+                            <th>Hora de abertura</th>
+                            <th>Hora de fechamento</th>
+                            <th>Endereço</th>
                         </tr>
                     </thead>
-                    <tbody *ngIf="resultadoPesquisaFiltrada.length > 0">
+                    <tbody >
                         <tr *ngFor="let rest of resultadoPesquisaFiltrada">
                             <td id="rest-{{rest.cnpj}}">{{rest.nome_restaurante}}</td>
-                            <td>{{rest.cnpj}}</td>
                             <td>{{rest.cep}}</td>
                             <td>{{rest.cidade}}</td>
-                            <td>
-                                <button class="btn btn-secondary">Infos<i class="fas fa fa-circle-info"></i></button>
-                            </td>
+                            <td>{{rest.horario_inicio}}</td>
+                            <td>{{rest.horario_fim}}</td>
+                            <td>{{rest.rua}}, nº {{numero}}, {{ rest.complemento }}</td>
+                            <!--
+                        <td>
+                            <button class="btn btn-secondary" [routerLink]="['/profile', rest.cnpj]">Infos<i class="fas fa fa-circle-info"></i></button>
+                        </td>-->
                          </tr>
                         
                     </tbody>
-                    
-                  <tbody *ngIf="resultadoPesquisaFiltrada.length == 0 && ((nome == undefined && cidadeRest == undefined) || (nome == '' && cidadeRest == ''))">
+                  
+                  <tbody *ngIf="resultadoPesquisaFiltrada.length == 0 && (nome == undefined && cidadeRest == undefined)">
                   <tr *ngFor="let rest of restaurantes">
                         <td id="rest-{{rest.cnpj}}">{{rest.nome_restaurante}}</td>
-                        <td>{{rest.cnpj}}</td>
                         <td>{{rest.cep}}</td>
                         <td>{{rest.cidade}}</td>
+                        <td>{{rest.horario_inicio}}</td>
+                        <td>{{rest.horario_fim}}</td>
+                        <td>{{rest.rua}}, nº {{rest.numero}}, {{ rest.complemento }}</td>
+                        <!--
                         <td>
-                            <button class="btn btn-secondary">Infos<i class="fas fa fa-circle-info"></i></button>
-                        </td>
+                            <button class="btn btn-secondary" [routerLink]="['/profile', rest.cnpj]">Infos<i class="fas fa fa-circle-info"></i></button>
+                        </td>-->
                      </tr>
                     
                 </tbody>
-                 
+                
                   
                   
 
