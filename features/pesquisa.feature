@@ -4,31 +4,59 @@ I want to pesquisar um restaurante existente
 
 Scenario: Pesquisa rápida de nome bem sucedida de apenas um restaurante
     Given que o visitante esteja na página home do sistema
-    When o visitante preencha o campo de pesquisar com o nome "Comida da"
+    When o visitante preencha o campo de pesquisa o nome "Comida da"
     And exista um restaurante cadastrado com o nome "Comida da tia"
-    Then aparece campos de Listas de Restaurantes filtrados
-    And apenas restaurante de nome "Comida da tia" aparece 
+    Then aparece campo abaixo com resultado da pesquisa
 
 Scenario: Pesquisa rápida de nome bem sucedida de vários restaurantes
     Given que o visitante esteja na página home do sistema
-    When o visitante preencha o campo de pesquisar com o nome "Comida"
+    When o visitante preencha o campo de pesquisa o nome "Comida"
     And exista dois ou mais restaurantes cadastrados com "Comida" em seu nome
-    Then campos de Listas de Restaurantes são filtrados
-    And restaurantes com nome "Comida" em nomes aparecem
+    Then aparece campo abaixo com resultado da pesquisa
 
 Scenario: Pesquisa rápida de nome mal sucedida de restaurante
     Given que o visitante esteja na página home do sistema
-    When o visitante preencha o campo de pesquisar com o nome "Cinfood"
+    When o visitante preencha o campo de pesquisa o nome "Cinfood"
     And não exista um restaurante cadastrado com "Cinfood" em seu nome
-    Then aparece campos filtrados de Listas de Restaurantes com nenhum restaurante
+    Then não aparece nenhum campo abaixo com o restaurante
 
-Scenario: Pesquisa rápida de todos os restaurantes
+Scenario: Pesquisa filtrada bem sucedida sem preenchimento de filtros
     Given que o visitante esteja na página home do sistema
-    And o campo pesquisar está vazio
-    Then aparece todos os restaurantes em Listas de Restaurantes
+    When o visitante seleciona a opção Pesquisar
+    And exista um ou mais restaurantes cadastrados
+    Then aparece tabela abaixo de Listas de Restaurantes com restaurantes pesquisados
+    And campos de Listas de Restaurantes preenchidos
 
-
-Scenario: Pesquisa rápida de todos os restaurantes após pesquisa
+Scenario: Pesquisa filtrada bem sucedida com preenchimento de filtro nome
     Given que o visitante esteja na página home do sistema
-    And o visitante apaga nome pesquisado no campo de pesquisar
-    Then aparece todos os restaurantes em Listas de Restaurantes
+    When o visitante preencha o campo nome com "Comida da"
+    And exista um ou mais restaurantes cadastrados com o nome "Comida da tia"
+    And seja selecionada a opção Pesquisar
+    Then aparece tabela abaixo de Listas de Restaurantes com resultado da pesquisa
+    And campos de Listas de Restaurantes preenchidos
+
+Scenario: Pesquisa filtrada bem sucedida com preenchimento de filtro cidade
+    Given que o visitante esteja na página home do sistema
+    When o visitante preencha o campo cidade com "Rec"
+    And exista um ou mais restaurantes cadastrados na cidades "Recife" e "Recando das Almas"
+    And seja selecionada a opção Pesquisar
+    Then aparece tabela abaixo de Listas de Restaurantes com resultado da pesquisa
+    And campos de Listas de Restaurantes preenchidos
+   
+Scenario: Pesquisa filtrada bem sucedida com preenchimento de filtro cidade e nome
+    Given que o visitante esteja na página home do sistema
+    When o visitante preencha o campo cidade com "Rec"
+    And o visitante preencha o campo nome com "Pizza"
+    And exista um restaurante cadastrado na cidade "Recife"
+    And com o nome "Pizzaria"
+    And seja selecionada a opção Pesquisar
+    Then aparece tabela abaixo de Listas de Restaurantes com resultado da pesquisa
+    And campos de Listas de Restaurantes preenchidos
+
+Scenario: Pesquisa filtrada mal sucedida com preenchimento de filtro cidade ou nome
+    Given que o visitante esteja na página home do sistema
+    When o visitante preencha o campo cidade com "Rec"
+    And não exista restaurante cadastrado na cidade "Recife"
+    And seja selecionada a opção Pesquisar
+    Then aparece abaixo de Listas de Restaurantes com resultado da pesquisa
+    And campos de Listas de Restaurantes vazios
