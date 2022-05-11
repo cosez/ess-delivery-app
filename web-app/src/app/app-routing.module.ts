@@ -11,7 +11,7 @@ import { PedidoComponent } from './pedido/pedido.component';
 
 const routes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
-  { path: 'home', component: HomeComponent},
+  { path: '', component: HomeComponent},
   { path: 'login', component: LoginComponent },
   { path: 'cadastro', component: CadastroComponent },
   { path: 'status', component: StatusComponent },
