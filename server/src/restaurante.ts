@@ -12,6 +12,9 @@ export class Restaurante {
   telefone_responsavel: string;
   email: string;
   senha: string;
+  descricao: string;
+  metodo_pagamento: any[];
+
 
   constructor(restaurante: Restaurante) {
     this.nome_restaurante = restaurante.nome_restaurante;
@@ -27,10 +30,14 @@ export class Restaurante {
     this.telefone_responsavel = restaurante.telefone_responsavel;
     this.email = restaurante.email;
     this.senha = restaurante.senha;
+    this.descricao = restaurante.descricao;
+    this.metodo_pagamento = restaurante.metodo_pagamento;
+
+
   }
 
   update(restaurante: Restaurante): void {
-    this.nome_restaurante = restaurante.nome_responsavel;
+    this.nome_restaurante = restaurante.nome_restaurante;
     this.cnpj = restaurante.cnpj;
     this.cep = restaurante.cep;
     this.rua = restaurante.rua;
@@ -43,5 +50,10 @@ export class Restaurante {
     this.telefone_responsavel = restaurante.telefone_responsavel;
     this.email = restaurante.email;
     this.senha = restaurante.senha;
+    this.descricao = restaurante.descricao;
+    this.metodo_pagamento = restaurante.metodo_pagamento;
+
+
+    
   }
 }

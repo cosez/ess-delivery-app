@@ -20,6 +20,15 @@ export class CadastroService {
       .catch(this.catch);
   }
 
+  update(restaurante: Restaurante): Promise<Restaurante> {
+    return this.http.put(this.taURL + "/restaurant",JSON.stringify(restaurante), {headers: this.headers})
+      .toPromise()
+      .then(res => {
+        if (res.status === 201) {return restaurante;} else {return null;}
+      })
+      .catch(this.catch);
+  }
+
   getRestaurantes(): Promise<Restaurante[]> {
     return this.http.get(this.taURL + "/restaurant")
              .toPromise()

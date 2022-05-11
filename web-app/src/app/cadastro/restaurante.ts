@@ -1,3 +1,5 @@
+import { PrefixNot } from "@angular/compiler";
+
 export class Restaurante {
   nome_restaurante: string;
   cnpj: string;
@@ -12,6 +14,8 @@ export class Restaurante {
   telefone_responsavel: string;
   email: string;
   senha: string;
+  descricao: string;
+  metodo_pagamento: any[];
 
   constructor() {
     this.nome_restaurante = "";
@@ -27,5 +31,8 @@ export class Restaurante {
     this.telefone_responsavel = "";
     this.email = "";
     this.senha = "";
+    this.descricao = "";
+    this.metodo_pagamento = [];
+
   }
 }
