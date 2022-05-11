@@ -31,7 +31,6 @@ export class ProfileComponent implements OnInit {
 
 
   updateRestaurante(r: Restaurante): void {
-     this.modal = false;
       this.cadastroService.update(r)
      .then(result => {
            if (result) {
