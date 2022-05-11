@@ -4,36 +4,36 @@
    <div class="form-row">
      <div class="form-group col-md-7">
        <label for="inputName">Nome do Restaurante</label>
-       <input [(ngModel)]="restaurante.nome_restaurante" [disabled]="this.error" type="text" class="form-control" id="inputName" placeholder="Nome" required>
+       <input name="Nome do Restaurante" [(ngModel)]="restaurante.nome_restaurante" [disabled]="this.error" type="text" class="form-control" id="inputName" placeholder="Nome" required>
      </div>
      <div class="form-group col-md-4">
        <label for="cnpj-input">CNPJ</label>
-       <input [ngModel]="restaurante.cnpj" (keypress) = "onlyNumbersLimitedKeyPress($event, restaurante.cnpj, 18)" (ngModelChange) = "formatCNPJ($event)" [disabled]="this.error" type="text" class="form-control" id="cnpj-input" placeholder="CNPJ" required>
+       <input name="CNPJ" [ngModel]="restaurante.cnpj" (keypress) = "onlyNumbersLimitedKeyPress($event, restaurante.cnpj, 18)" (ngModelChange) = "formatCNPJ($event)" [disabled]="this.error" type="text" class="form-control" id="cnpj-input" placeholder="CNPJ" required>
      </div>
    </div>
 
    <div class="form-row">
      <div class="form-group col-md-5">
        <label for="inputAddress">Rua</label>
-       <input [(ngModel)]="restaurante.rua" [disabled]="this.error" type="text" class="form-control" id="inputAddress" placeholder="Rua" required>
+       <input name="Rua" [(ngModel)]="restaurante.rua" [disabled]="this.error" type="text" class="form-control" id="inputAddress" placeholder="Rua" required>
      </div>
      <div class="form-group col-md-1">
        <label for="inputNumber">Número</label>
-       <input [(ngModel)]="restaurante.numero" (keypress) = "onlyNumbersKeyPress($event)" [disabled]="this.error" type="number" class="form-control" id="inputNumber" placeholder="Num" required>
+       <input name="Número" [(ngModel)]="restaurante.numero" (keypress) = "onlyNumbersKeyPress($event)" [disabled]="this.error" type="number" class="form-control" id="inputNumber" placeholder="Num" required>
      </div>
      <div class="form-group col-md-4">
        <label for="inputCity">Cidade</label>
-       <input [(ngModel)]="restaurante.cidade" [disabled]="this.error" type="text" class="form-control" id="inputCity" placeholder="Cidade" required>
+       <input name="Cidade" [(ngModel)]="restaurante.cidade" [disabled]="this.error" type="text" class="form-control" id="inputCity" placeholder="Cidade" required>
      </div>
    </div>
    <div class="form-row">
      <div class="form-group col-md-7">
        <label for="inputComplement">Complemento</label>
-       <input [(ngModel)]="restaurante.complemento" [disabled]="this.error" type="text" class="form-control" id="inputComplement" placeholder="Complemento" required>
+       <input name="Complemento" [(ngModel)]="restaurante.complemento" [disabled]="this.error" type="text" class="form-control" id="inputComplement" placeholder="Complemento" required>
      </div>
      <div class="form-group col-md-4">
        <label for="inputCEP">CEP</label>
-       <input [ngModel]="restaurante.cep" (keypress) = "onlyNumbersLimitedKeyPress($event, restaurante.cep, 9)" (ngModelChange) = "formatCEP($event)" [disabled]="this.error" type="text" class="form-control" id="cep-input" placeholder="CEP" required>
+       <input name="CEP" [ngModel]="restaurante.cep" (keypress) = "onlyNumbersLimitedKeyPress($event, restaurante.cep, 9)" (ngModelChange) = "formatCEP($event)" [disabled]="this.error" type="text" class="form-control" id="cep-input" placeholder="CEP" required>
      </div>
    </div>
 
@@ -45,11 +45,11 @@
    <div class="form-row col-md-6">
      <div class="form-group col-md-5">
        <label for="inputStartTime">Horário de início</label>
-       <input onfocus = "this.type='time'" [(ngModel)]="restaurante.horario_inicio" [disabled]="this.error" type="time" class="form-control" id="inputStartTime" placeholder="19:00h" required>
+       <input name="Horário de início" onfocus = "this.type='time'" [(ngModel)]="restaurante.horario_inicio" [disabled]="this.error" type="time" class="form-control" id="inputStartTime" placeholder="19:00h" required>
      </div>
      <div class="form-group col-md-5">
        <label for="inputEndtTime">Horário de fim</label>
-       <input type="time" class="form-control" id="inputEndtTime" placeholder="19:00h" onfocus = "this.type='time'" [(ngModel)]="restaurante.horario_fim" [disabled]="this.error" required>
+       <input name="Horário de fim" type="time" class="form-control" id="inputEndtTime" placeholder="19:00h" onfocus = "this.type='time'" [(ngModel)]="restaurante.horario_fim" [disabled]="this.error" required>
      </div>
    </div>
 
@@ -68,7 +68,7 @@
    <div class="form-row">
       <div class="form-group col-md-7">
         <label for="inputName">Email pra contato</label>
-        <input id="email-input" type = "email" name="Email para Contato" [(ngModel)]="restaurante.email" [disabled]="this.error" class="form-control" placeholder="Email" required>
+        <input id="email-input" type = "email" name="Email para contato" [(ngModel)]="restaurante.email" [disabled]="this.error" class="form-control" placeholder="Email" required>
       </div>
       <div class="form-group col-md-4">
         <label for="cnpj-input">Senha</label>
@@ -76,7 +76,7 @@
       </div>
    </div>
 
-   <button type="button" class="btn btn-primary" (click)="createRestaurante(restaurante)" [disabled]="this.error">Adicionar</button>
+   <button id="registrar_restaurante" type="button" class="btn btn-primary" (click)="createRestaurante(restaurante)" [disabled]="this.error">Adicionar</button>
  </div>
 
 
