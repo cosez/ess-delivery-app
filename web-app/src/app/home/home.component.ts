@@ -12,65 +12,39 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private authenticationService: AuthenticationService, private cadastrosService: CadastroService, private actRoute: ActivatedRoute, private router: Router) { 
+  constructor(private authenticationService: AuthenticationService, private cadastrosService: CadastroService, private actRoute: ActivatedRoute, private router: Router) {
   }
-    restaurantes: Restaurante[] = [];
-    restaurante: Restaurante = new Restaurante();
-    resultadoPesquisaNomeDinamica: Restaurante[] = [];
-    resultadoPesquisaFiltrada: Restaurante[] = [];
-    resultadoFilter: Restaurante[] = [];
+  restaurantes: Restaurante[] = [];
+  restaurante: Restaurante = new Restaurante();
+  resultadoFilter: Restaurante[] = [];
 
   ngOnInit(): void {
-    
+
     this.restaurante = this.authenticationService.restaurante;
     this.getRestaurantes()
   }
-  
-  getRestaurantes(): void{
+
+  getRestaurantes(): void {
     this.cadastrosService.getRestaurantes().then(response => {
-      this.restaurantes = response
+      this.restaurantes = response;
+      this.resultadoFilter = response;
     })
-    .catch(erro => alert(erro))
+      .catch(erro => alert(erro))
   }
 
-  getRestauranteByNameDinamica(nome: string): void{
-    this.resultadoPesquisaNomeDinamica = []
-    this.cadastrosService.getRestaurantes().then(res => {
-      res.forEach(element => {
-        if(element.nome_restaurante.toLowerCase().includes(nome.toLowerCase()) && nome != ''){
-          this.resultadoPesquisaNomeDinamica.push(element)
-        }else if(nome == ''){
-          this.resultadoPesquisaNomeDinamica = []
+
+  getRestaurantsByName(nome: string): void {
+    this.resultadoFilter = []
+
+    if (nome === '') {
+      this.resultadoFilter = this.restaurantes;
+    } else {
+      this.restaurantes.forEach(element => {
+        if (nome != '' && element.nome_restaurante.toLowerCase().includes(nome.toLowerCase())) {
+          this.resultadoFilter.push(element)
         }
       });
-      this.resultadoPesquisaNomeDinamica
-  
-    })
-    .catch(erro => alert(erro))
+    }
 
   }
-
-  getPesquisaFiltrada(nome: string, cidadeRest:string, filter = false): void{
-    if(nome == undefined){
-      nome = ''
-    }if(cidadeRest == undefined){
-      cidadeRest = ''
-    }if ((nome == '' || cidadeRest == '') && (filter == false)){
-      this.resultadoPesquisaFiltrada = []
-    }
-    if (filter == true) {
-      this.cadastrosService.getRestaurantes().then(res => {
-        res.forEach(element => {
-          if(element.nome_restaurante.toLowerCase().includes(nome.toLowerCase()) && element.cidade.toLowerCase().includes(cidadeRest.toLowerCase())){
-            this.resultadoPesquisaFiltrada.push(element)
-          }
-        });
-        console.log(this.resultadoPesquisaFiltrada)
-        console.log(this.restaurantes)
-      })
-      .catch(erro => alert(erro))
-    }
-    this.resultadoPesquisaFiltrada = []
-  }
-
 }
