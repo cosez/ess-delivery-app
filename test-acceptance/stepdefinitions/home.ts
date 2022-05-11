@@ -12,15 +12,15 @@ defineSupportCode(function ({ Given, When, Then }) {
         await browser.get("http://localhost:4200/home");
     });
 
-    When(/^o visitante preencha o campo de pesquisar com o nome "Comida da" e exista um restaurante cadastrado com o nome "Comida da tia"$/, {timeout: 100 * 1000},async (field, content) => {
+    When(/^o visitante preencha o campo de pesquisar com o nome "Comida da" e exista um restaurante cadastrado com o nome "Comida da tia"$/, {timeout: 100 * 1000},async () => {
         await element(by.id("search-box")).contains("Comida da");
     });
 
-    When(/^o campo pesquisar está vazio$/, {timeout: 100 * 1000},async (field, content) => {
+    When(/^o campo pesquisar está vazio$/, {timeout: 100 * 1000},async () => {
         await element(by.id("search-box")).contains("");
     });
 
-    When(/^ o visitante preencha o campo de pesquisar com o nome "Cinfood"$/, {timeout: 100 * 1000},async (field, content) => {
+    When(/^ o visitante preencha o campo de pesquisar com o nome "Cinfood"$/, {timeout: 100 * 1000},async () => {
         await element(by.id("search-box")).contains("Cinfood");
     });
 
