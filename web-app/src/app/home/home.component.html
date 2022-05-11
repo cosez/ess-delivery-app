@@ -1,45 +1,68 @@
 <main onload=getRestaurantes() role="main" class="container">
-    <div class=" jumbotron">
-        <div class="container">
-          </div> 
-        <div class="card w-100 my-5">
-            <div class="card-body">
-                <h1 class="card-title text-center">Lista de Restaurantes</h1>
-                <div class="restaurants-list-header">
-                  <div class="col-md-6">
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroupPrepend">🔎</span>
-                      </div>
-                      <input type="search" id="search-box" #searchBox class="form-control" (input)="getRestaurantsByName(searchBox.value)" placeholder="Pesquisar..." id="pesquisa" />
-                    </div>
-                  </div>
-                    <button class="btn btn-success mb-4 float-ent" routerLink="/cadastro">Cadastrar Novo</button>
-                </div>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>CEP</th>
-                            <th>Cidade</th>
-                            <th>Hora de abertura</th>
-                            <th>Hora de fechamento</th>
-                            <th>Endereço</th>
-                        </tr>
-                    </thead>
-                    <tbody >
-                        <tr *ngFor="let rest of resultadoFilter">
-                            <td id="rest-{{rest.cnpj}}">{{rest.nome_restaurante}}</td>
-                            <td>{{rest.cep}}</td>
-                            <td>{{rest.cidade}}</td>
-                            <td>{{rest.horario_inicio}}</td>
-                            <td>{{rest.horario_fim}}</td>
-                            <td>{{rest.rua}}, nº {{rest.numero}}, {{ rest.complemento }}</td>
-                         </tr>
-                        
-                    </tbody>            
-                </table>
+  <div class=" jumbotron">
+    
+      <div class="container">
+          <div class="row mb-5">
+            <div class="col">
+              <h1 class="display-4">Aplicar filtros</h1>
             </div>
+          </div>
+      
+          <div class="row mb-2">  
+            <div class="col-md-8">
+              <input type="text" class="form-control" [(ngModel)]="cidadeRest" placeholder="Cidade" id="cidadeRest" />
+            </div>
+          </div>
+      
+          <div class="row  mb-5">
+            <div class="col-md-8">
+              <input type="text" class="form-control" [(ngModel)]="nome" placeholder="Nome" id="nome" />
+            </div>
+            <div class="col-md-4 d-flex justify-content-end">
+              <button type="button" class="btn btn-primary" (click)="getPesquisaFiltrada(nome, cidadeRest, true)">
+                <i class="fas fa-search">Pesquisar</i>
+              </button>
+            </div>
+          </div>
+          
+          <div id="search-component">
+            <label for="search-box">Pesquisa Rápida</label>
+            <input #searchBox id="search-box" (input)="getRestauranteByNameDinamica(searchBox.value)" />
+            <tbody class="search-result">
+              <tr *ngFor="let rest of resultadoPesquisaNomeDinamica">
+                  <td id="rest-{{rest.cnpj}}"><a>{{rest.nome_restaurante}}</a></td>
+               </tr>
+          </tbody>
+          </div>
+      
         </div>
-    </div>
+      <div class="card w-100 my-5">
+          <div class="card-body">
+              <h1 class="card-title text-center">Lista de Restaurantes</h1>
+              <button class="btn btn-success mb-4 float-ent" routerLink="/cadastro">Cadastrar Novo</button>
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th>Nome</th>
+                          <th>CEP</th>
+                          <th>Cidade</th>
+                          <th>Abertura</th>
+                          <th>Fechamento</th>
+                          <th>Endereço</th>
+                      </tr>
+                  </thead>
+                  <tbody >
+                      <tr *ngFor="let rest of resultadoPesquisaFiltrada">
+                          <td id="rest-{{rest.cnpj}}">{{rest.nome_restaurante}}</td>
+                          <td>{{rest.cep}}</td>
+                          <td>{{rest.cidade}}</td>
+                          <td>{{rest.horario_inicio}}</td>
+                          <td>{{rest.horario_fim}}</td>
+                          <td>{{rest.rua}}, nº {{rest.numero}}, {{ rest.complemento }}</td>
+                       </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </div>
 </main>
