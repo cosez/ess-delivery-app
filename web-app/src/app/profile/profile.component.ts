@@ -32,9 +32,14 @@ export class ProfileComponent implements OnInit {
   }
 
   deleteRestaurant() {
-    this.cadastroService.delete(this.restaurante.email)
-         .then(() => this.router.navigateByUrl('/login'))
+    if (confirm("Tem certeza que deseja apagar a conta?")) {
+      this.cadastroService.delete(this.restaurante.email)
+         .then(() => {
+           this.router.navigateByUrl('/login');
+           alert("Restaurante apagado com sucesso");
+         })
          .catch(erro => alert(erro));
+    }    
   }
 
   backToLogin() {
