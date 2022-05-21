@@ -1,0 +1,100 @@
+[14:36:26.227] Global cache location '/home/enzobissoli/.cache/typescript/4.6', safe file path '/home/enzobissoli/Insync/enzogurgel15@gmail.com/GoogleDrive/UFPE/2021.2/EngSoftware/Projeto/final/status-module/node_modules/typescript/lib/typingSafeList.json', types map path /home/enzobissoli/Insync/enzogurgel15@gmail.com/GoogleDrive/UFPE/2021.2/EngSoftware/Projeto/final/status-module/node_modules/typescript/lib/typesMap.json
+[14:36:26.228] Processing cache location '/home/enzobissoli/.cache/typescript/4.6'
+[14:36:26.228] Trying to find '/home/enzobissoli/.cache/typescript/4.6/package.json'...
+[14:36:26.229] Loaded content of '/home/enzobissoli/.cache/typescript/4.6/package.json': {"private":true,"dependencies":{"types-registry":"^0.1.593"},"devDependencies":{"@types/accepts":"^1.3.5","@types/angular":"^1.8.4","@types/balanced-match":"^1.0.2","@types/body-parser":"^1.19.2","@types/brace-expansion":"^1.1.0","@types/bytes":"^3.1.1","@types/concat-map":"0.0.1","@types/content-disposition":"^0.5.4","@types/content-type":"^1.1.5","@types/cookie":"^0.4.1","@types/cookie-signature":"^1.0.4","@types/debug":"^4.1.7","@types/depd":"^1.1.32","@types/destroy":"^1.0.0","@types/ee-first":"^1.1.0","@types/encodeurl":"^1.0.0","@types/escape-html":"^1.0.1","@types/etag":"^1.8.1","@types/express":"^4.17.13","@types/finalhandler":"^1.1.1","@types/forwarded":"^0.1.0","@types/fresh":"^0.5.0","@types/http-errors":"^1.8.2","@types/inherits":"^0.0.30","@types/isexe":"^2.0.1","@types/istanbul-lib-coverage":"^2.0.4","@types/istanbul-lib-instrument":"^1.7.4","@types/istanbul-lib-report":"^3.0.0","@types/istanbul-reports":"^3.0.1","@types/karma":"^6.3.3","@types/karma-chrome-launcher":"^3.1.1","@types/karma-coverage":"^2.0.1","@types/karma-jasmine":"^4.0.2","@types/karma-jasmine-html-reporter":"^1.7.0","@types/media-typer":"^1.1.1","@types/merge-descriptors":"^1.0.1","@types/methods":"^1.1.1","@types/mime":"^2.0.3","@types/mime-db":"^1.43.1","@types/mime-types":"^2.1.1","@types/minimatch":"^3.0.5","@types/ms":"^0.7.31","@types/negotiator":"^0.6.1","@types/on-finished":"^2.3.1","@types/parseurl":"^1.3.1","@types/proxy-addr":"^2.0.0","@types/qs":"^6.9.7","@types/range-parser":"^1.2.4","@types/safer-buffer":"^2.1.0","@types/send":"^0.17.1","@types/serve-static":"^1.13.10","@types/statuses":"^2.0.0","@types/type-is":"^1.6.3","@types/utils-merge":"^0.0.28","@types/vary":"^1.1.0","@types/which":"^2.0.1"}}
+[14:36:26.229] Loaded content of '/home/enzobissoli/.cache/typescript/4.6/package-lock.json'
+[14:36:26.237] Adding entry into typings cache: 'accepts' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/accepts/index.d.ts'
+[14:36:26.240] Adding entry into typings cache: 'angular' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/angular/index.d.ts'
+[14:36:26.241] Adding entry into typings cache: 'balanced-match' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/balanced-match/index.d.ts'
+[14:36:26.245] Adding entry into typings cache: 'body-parser' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/body-parser/index.d.ts'
+[14:36:26.248] Adding entry into typings cache: 'brace-expansion' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/brace-expansion/index.d.ts'
+[14:36:26.251] Adding entry into typings cache: 'bytes' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/bytes/index.d.ts'
+[14:36:26.253] Adding entry into typings cache: 'concat-map' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/concat-map/index.d.ts'
+[14:36:26.255] Adding entry into typings cache: 'content-disposition' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/content-disposition/index.d.ts'
+[14:36:26.258] Adding entry into typings cache: 'content-type' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/content-type/index.d.ts'
+[14:36:26.261] Adding entry into typings cache: 'cookie' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/cookie/index.d.ts'
+[14:36:26.263] Adding entry into typings cache: 'cookie-signature' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/cookie-signature/index.d.ts'
+[14:36:26.269] Adding entry into typings cache: 'debug' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/debug/index.d.ts'
+[14:36:26.271] Adding entry into typings cache: 'depd' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/depd/index.d.ts'
+[14:36:26.272] Adding entry into typings cache: 'destroy' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/destroy/index.d.ts'
+[14:36:26.273] Adding entry into typings cache: 'ee-first' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/ee-first/index.d.ts'
+[14:36:26.276] Adding entry into typings cache: 'encodeurl' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/encodeurl/index.d.ts'
+[14:36:26.277] Adding entry into typings cache: 'escape-html' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/escape-html/index.d.ts'
+[14:36:26.278] Adding entry into typings cache: 'etag' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/etag/index.d.ts'
+[14:36:26.280] Adding entry into typings cache: 'express' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/express/index.d.ts'
+[14:36:26.281] Adding entry into typings cache: 'finalhandler' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/finalhandler/index.d.ts'
+[14:36:26.282] Adding entry into typings cache: 'forwarded' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/forwarded/index.d.ts'
+[14:36:26.283] Adding entry into typings cache: 'fresh' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/fresh/index.d.ts'
+[14:36:26.284] Adding entry into typings cache: 'http-errors' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/http-errors/index.d.ts'
+[14:36:26.286] Adding entry into typings cache: 'inherits' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/inherits/index.d.ts'
+[14:36:26.287] Adding entry into typings cache: 'isexe' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/isexe/index.d.ts'
+[14:36:26.288] Adding entry into typings cache: 'istanbul-lib-coverage' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/istanbul-lib-coverage/index.d.ts'
+[14:36:26.289] Adding entry into typings cache: 'istanbul-lib-instrument' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/istanbul-lib-instrument/index.d.ts'
+[14:36:26.291] Adding entry into typings cache: 'istanbul-lib-report' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/istanbul-lib-report/index.d.ts'
+[14:36:26.293] Adding entry into typings cache: 'istanbul-reports' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/istanbul-reports/index.d.ts'
+[14:36:26.294] Adding entry into typings cache: 'karma' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/karma/index.d.ts'
+[14:36:26.295] Adding entry into typings cache: 'karma-chrome-launcher' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/karma-chrome-launcher/index.d.ts'
+[14:36:26.297] Adding entry into typings cache: 'karma-coverage' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/karma-coverage/index.d.ts'
+[14:36:26.298] Adding entry into typings cache: 'karma-jasmine' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/karma-jasmine/index.d.ts'
+[14:36:26.301] Adding entry into typings cache: 'karma-jasmine-html-reporter' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/karma-jasmine-html-reporter/index.d.ts'
+[14:36:26.303] Adding entry into typings cache: 'media-typer' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/media-typer/index.d.ts'
+[14:36:26.305] Adding entry into typings cache: 'merge-descriptors' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/merge-descriptors/index.d.ts'
+[14:36:26.307] Adding entry into typings cache: 'methods' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/methods/index.d.ts'
+[14:36:26.309] Adding entry into typings cache: 'mime' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/mime/index.d.ts'
+[14:36:26.310] Adding entry into typings cache: 'mime-db' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/mime-db/index.d.ts'
+[14:36:26.311] Adding entry into typings cache: 'mime-types' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/mime-types/index.d.ts'
+[14:36:26.312] Adding entry into typings cache: 'minimatch' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/minimatch/index.d.ts'
+[14:36:26.314] Adding entry into typings cache: 'ms' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/ms/index.d.ts'
+[14:36:26.315] Adding entry into typings cache: 'negotiator' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/negotiator/index.d.ts'
+[14:36:26.318] Adding entry into typings cache: 'on-finished' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/on-finished/index.d.ts'
+[14:36:26.319] Adding entry into typings cache: 'parseurl' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/parseurl/index.d.ts'
+[14:36:26.320] Adding entry into typings cache: 'proxy-addr' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/proxy-addr/index.d.ts'
+[14:36:26.322] Adding entry into typings cache: 'qs' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/qs/index.d.ts'
+[14:36:26.323] Adding entry into typings cache: 'range-parser' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/range-parser/index.d.ts'
+[14:36:26.325] Adding entry into typings cache: 'safer-buffer' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/safer-buffer/index.d.ts'
+[14:36:26.326] Adding entry into typings cache: 'send' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/send/index.d.ts'
+[14:36:26.328] Adding entry into typings cache: 'serve-static' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/serve-static/index.d.ts'
+[14:36:26.328] Adding entry into typings cache: 'statuses' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/statuses/index.d.ts'
+[14:36:26.329] Adding entry into typings cache: 'type-is' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/type-is/index.d.ts'
+[14:36:26.330] Adding entry into typings cache: 'utils-merge' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/utils-merge/index.d.ts'
+[14:36:26.331] Adding entry into typings cache: 'vary' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/vary/index.d.ts'
+[14:36:26.332] Adding entry into typings cache: 'which' => '/home/enzobissoli/.cache/typescript/4.6/node_modules/@types/which/index.d.ts'
+[14:36:26.332] Finished processing cache location '/home/enzobissoli/.cache/typescript/4.6'
+[14:36:26.332] Process id: 173485
+[14:36:26.332] NPM location: /home/enzobissoli/.config/nvm/versions/node/v14.19.1/bin/npm (explicit '--npmLocation' not  provided)
+[14:36:26.332] validateDefaultNpmLocation: false
+[14:36:26.332] Npm config file: /home/enzobissoli/.cache/typescript/4.6/package.json
+[14:36:26.332] Updating types-registry npm package...
+[14:36:26.333] Exec: /home/enzobissoli/.config/nvm/versions/node/v14.19.1/bin/npm install --ignore-scripts types-registry@latest
+[14:36:28.642]     Succeeded. stdout:
+    + types-registry@0.1.593
+    updated 1 package and audited 81 packages in 1.285s
+found 0 vulnerabilities
+
+
+[14:36:28.643] Updated types-registry npm package
+[15:03:57.924] Got install request {"projectName":"/dev/null/inferredProject1*","fileNames":[],"compilerOptions":{"module":1,"target":3,"jsx":1,"allowJs":true,"allowSyntheticDefaultImports":true,"allowNonTsExtensions":true,"noEmitForJsFiles":true},"typeAcquisition":{"enable":true,"include":[],"exclude":[]},"unresolvedImports":[],"projectRootPath":"/home/enzobissoli/Insync/enzogurgel15@gmail.com/GoogleDrive/UFPE/2021.2/EngSoftware/Projeto/final/status-module/src/app/state","kind":"discover"}
+[15:03:58.040] Loaded safelist from types map file '/home/enzobissoli/Insync/enzogurgel15@gmail.com/GoogleDrive/UFPE/2021.2/EngSoftware/Projeto/final/status-module/node_modules/typescript/lib/typesMap.json'
+[15:03:58.041] Explicitly included types: []
+[15:03:58.042] Inferred typings from unresolved imports: []
+[15:03:58.042] Result: {"cachedTypingPaths":[],"newTypingNames":[],"filesToWatch":["/home/enzobissoli/Insync/enzogurgel15@gmail.com/GoogleDrive/UFPE/2021.2/EngSoftware/Projeto/final/status-module/src/app/state/bower_components","/home/enzobissoli/Insync/enzogurgel15@gmail.com/GoogleDrive/UFPE/2021.2/EngSoftware/Projeto/final/status-module/src/app/state/node_modules"]}
+[15:03:58.042] Finished typings discovery: {"cachedTypingPaths":[],"newTypingNames":[],"filesToWatch":["/home/enzobissoli/Insync/enzogurgel15@gmail.com/GoogleDrive/UFPE/2021.2/EngSoftware/Projeto/final/status-module/src/app/state/bower_components","/home/enzobissoli/Insync/enzogurgel15@gmail.com/GoogleDrive/UFPE/2021.2/EngSoftware/Projeto/final/status-module/src/app/state/node_modules"]}
+[15:03:58.043] DirectoryWatcher:: Added:: WatchInfo: /home/enzobissoli/Insync/enzogurgel15@gmail.com/GoogleDrive/UFPE/2021.2/EngSoftware/Projeto/final/status-module/src/app/state/bower_components
+[15:03:58.043] DirectoryWatcher:: Added:: WatchInfo: /home/enzobissoli/Insync/enzogurgel15@gmail.com/GoogleDrive/UFPE/2021.2/EngSoftware/Projeto/final/status-module/src/app/state/bower_components 1 undefined Project: /dev/null/inferredProject1* watcher already invoked: false
+[15:03:58.046] Elapsed:: 2.485375016927719ms DirectoryWatcher:: Added:: WatchInfo: /home/enzobissoli/Insync/enzogurgel15@gmail.com/GoogleDrive/UFPE/2021.2/EngSoftware/Projeto/final/status-module/src/app/state/bower_components 1 undefined Project: /dev/null/inferredProject1* watcher already invoked: false
+[15:03:58.046] DirectoryWatcher:: Added:: WatchInfo: /home/enzobissoli/Insync/enzogurgel15@gmail.com/GoogleDrive/UFPE/2021.2/EngSoftware/Projeto/final/status-module/src/app/state/node_modules
+[15:03:58.047] DirectoryWatcher:: Added:: WatchInfo: /home/enzobissoli/Insync/enzogurgel15@gmail.com/GoogleDrive/UFPE/2021.2/EngSoftware/Projeto/final/status-module/src/app/state/node_modules 1 undefined Project: /dev/null/inferredProject1* watcher already invoked: false
+[15:03:58.047] Elapsed:: 0.3137529790401459ms DirectoryWatcher:: Added:: WatchInfo: /home/enzobissoli/Insync/enzogurgel15@gmail.com/GoogleDrive/UFPE/2021.2/EngSoftware/Projeto/final/status-module/src/app/state/node_modules 1 undefined Project: /dev/null/inferredProject1* watcher already invoked: false
+[15:03:58.048] Sending response:
+    {"projectName":"/dev/null/inferredProject1*","typeAcquisition":{"enable":true,"include":[],"exclude":[]},"compilerOptions":{"module":1,"target":3,"jsx":1,"allowJs":true,"allowSyntheticDefaultImports":true,"allowNonTsExtensions":true,"noEmitForJsFiles":true},"typings":[],"unresolvedImports":[],"kind":"action::set"}
+[15:03:58.048] Response has been sent.
+[15:03:58.049] No new typings were requested as a result of typings discovery
+[15:08:55.696] Got install request {"projectName":"/dev/null/inferredProject1*","fileNames":[],"compilerOptions":{"module":1,"target":3,"jsx":1,"allowJs":true,"allowSyntheticDefaultImports":true,"allowNonTsExtensions":true,"noEmitForJsFiles":true},"typeAcquisition":{"enable":true,"include":[],"exclude":[]},"unresolvedImports":[],"projectRootPath":"/home/enzobissoli/Insync/enzogurgel15@gmail.com/GoogleDrive/UFPE/2021.2/EngSoftware/Projeto/final/status-module/src/app/state","kind":"discover"}
+[15:08:55.697] Explicitly included types: []
+[15:08:55.697] Inferred typings from unresolved imports: []
+[15:08:55.697] Result: {"cachedTypingPaths":[],"newTypingNames":[],"filesToWatch":["/home/enzobissoli/Insync/enzogurgel15@gmail.com/GoogleDrive/UFPE/2021.2/EngSoftware/Projeto/final/status-module/src/app/state/bower_components","/home/enzobissoli/Insync/enzogurgel15@gmail.com/GoogleDrive/UFPE/2021.2/EngSoftware/Projeto/final/status-module/src/app/state/node_modules"]}
+[15:08:55.697] Finished typings discovery: {"cachedTypingPaths":[],"newTypingNames":[],"filesToWatch":["/home/enzobissoli/Insync/enzogurgel15@gmail.com/GoogleDrive/UFPE/2021.2/EngSoftware/Projeto/final/status-module/src/app/state/bower_components","/home/enzobissoli/Insync/enzogurgel15@gmail.com/GoogleDrive/UFPE/2021.2/EngSoftware/Projeto/final/status-module/src/app/state/node_modules"]}
+[15:08:55.697] Sending response:
+    {"projectName":"/dev/null/inferredProject1*","typeAcquisition":{"enable":true,"include":[],"exclude":[]},"compilerOptions":{"module":1,"target":3,"jsx":1,"allowJs":true,"allowSyntheticDefaultImports":true,"allowNonTsExtensions":true,"noEmitForJsFiles":true},"typings":[],"unresolvedImports":[],"kind":"action::set"}
+[15:08:55.697] Response has been sent.
+[15:08:55.697] No new typings were requested as a result of typings discovery
