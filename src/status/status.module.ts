@@ -3,6 +3,7 @@ import { StatusService } from './status.service';
 import { StatusGateway } from './status.gateway';
 
 @Module({
-  providers: [StatusGateway, StatusService]
+  imports: [],
+  providers: [StatusGateway, StatusService ]
 })
 export class StatusModule {}

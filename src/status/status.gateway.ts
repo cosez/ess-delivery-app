@@ -1,51 +1,40 @@
 import { StatusService } from './status.service';
 import { WebSocketGateway, MessageBody, WebSocketServer, WsResponse, SubscribeMessage, ConnectedSocket, OnGatewayConnection, OnGatewayDisconnect, } from '@nestjs/websockets';
-import { Socket } from 'net';
+import { Server, Socket  } from 'socket.io';
+import { Order } from './status.interface';
 
-
-@WebSocketGateway(8080)
+@WebSocketGateway({cors: {
+    origin: '*',
+}})
 export class StatusGateway implements OnGatewayConnection, OnGatewayDisconnect {
-    private client_socket : Socket;
-
+    private __socket: Socket;
     constructor(private statusService: StatusService) {}
 
-    handleConnection(client: any, ...args: any[]) {
-        this.client_socket = client;
-        this.client_socket.emit('ready', () => "Ready to provide service");
+     handleConnection(client: any, ...args: any[]) {
+         this.__socket = client;
     }
 
-    handleDisconnect(client: any) {
-        this.client_socket.emit('close', () => "Connection closing...");
-        this.client_socket.end; // SEND FIN TO THE CLIENT, expect client to disconnect first
+     handleDisconnect(client: any) {
     }
 
-    OnGatewayConnection<T = any>(client: T) {
-        this.handleConnection(client);
-        return 'READY';
+    // advanceStatus(): any{ //CHANGE TO datatype order, all of these
+    @SubscribeMessage('advance')
+    handleUpdateEvent(@MessageBody() order: Order, @ConnectedSocket() client: Socket): Order {
+        return this.statusService.promoteStatus(order);
     }
 
-    OnGatewayDisconnect<T=any>(client: T) {
-        this.handleDisconnect(client);
+    @SubscribeMessage('regress')
+    handleRejectEvent(@MessageBody() order: Order, @ConnectedSocket() client: Socket): Order{
+        return this.statusService.demoteStatus(order);
     }
 
-    @SubscribeMessage('status/advance')
-    advanceStatus(): any{ //CHANGE TO datatype order, all of these
-        this.client_socket.emit('status/advance', this.statusService.advanceStatus());
+    @SubscribeMessage('reset')
+    handleResetEvent(@MessageBody() order: Order, @ConnectedSocket() client: Socket): Order{
+        return this.statusService.resetStatus(order);
     }
-
-    @SubscribeMessage('status/regress')
-    regressStatus(): any{
-        this.client_socket.emit('status/regress', () => this.statusService.regressStatus());
-    }
-
-    @SubscribeMessage('status/reset')
-    resetStatus(): any{
-        this.client_socket.emit('status/reset', () => this.statusService.resetStatus());
-    }
-
-    @SubscribeMessage('status/actual')
-    actualStatus(): any{
-        this.client_socket.emit('status/actual',() => this.statusService.actualStatus());
+    @SubscribeMessage('actual')
+    handleActualEvent(@MessageBody() order: Order, @ConnectedSocket() client: Socket): Order{
+        return this.statusService.actualStatus(order);
     }
 
 }

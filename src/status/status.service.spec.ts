@@ -31,7 +31,7 @@ describe('This test suite describes the StatusService functionality', () => {
 
   //TODO property based testing
   describe('when a signal arrives', () => {
-      it('might advance to the next state', async () => {
+      it('might advance to the next state', async () => { //REFACTOR: remove async
         targetData.status = Status['Accepted'];
         mockData.status = Status['Undefined'];
         const out = service.promoteStatus(mockData);
