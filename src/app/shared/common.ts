@@ -1,6 +1,11 @@
-export enum Status {
-  Undefined = 'undefined',
-  Accepted = 'accepted',
-  Preparing = 'preparing',
-  Ready = 'ready'
+export enum StatusEnum {
+  Undefined,
+  Accepted,
+  Preparing ,
+  Ready
+}
+
+export interface Status {
+  id: number;
+  state: StatusEnum;
 }

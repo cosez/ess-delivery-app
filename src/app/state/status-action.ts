@@ -1,6 +1,9 @@
-import { createAction } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
 
-export const update = createAction('[status Component] Update');
-export const rollBack = createAction('[status Component] RollBack');
-export const reset = createAction('[status Component] Reset');
-export const actual = createAction('[status Component] Actual');
+import { Status } from '../shared/common';
+
+export const loadStatus = createAction('[Status/API] Load Status', props<{ status: Status[] }>());
+export const rollbackStatus = createAction('[Status/API] Rollback Status', props<{ status: Status[] , id: number}>());
+export const updateStatus = createAction('[Status/API] Update Status', props<{ users: Status[] , id: number}>());
+export const resetStatus = createAction('[Status/API] Reset Status', props<{ users: Status[], id: number }>());
+export const actualStatus = createAction('[Status/API] Actual Status', props<{ users: Status[], id: number }>());
