@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { StatusComponent } from './status.component';
+import 'jest';
 
 describe('Describe the StatusComponent functionality', () => {
   let component: StatusComponent;

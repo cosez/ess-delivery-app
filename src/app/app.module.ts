@@ -3,18 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StoreModule } from '@ngrx/store';
-import { StatusComponentComponent } from './status/status-component/status-component.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StatusComponent } from './status/status.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StatusComponentComponent
+    StatusComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({}, {})
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

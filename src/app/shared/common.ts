@@ -1,11 +1,15 @@
 export enum StatusEnum {
-  Undefined,
-  Accepted,
-  Preparing ,
-  Ready
+  'Rejected',
+  'Undefined',
+  'Accepted',
+  'Preparing' ,
+  'Ready'
 }
 
-export interface Status {
-  id: number;
-  state: StatusEnum;
+export interface Order  {
+    name: string;
+    id: number;
+    order_name: string;
+    restaurant: string;
+    status: StatusEnum;
 }
