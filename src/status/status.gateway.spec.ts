@@ -43,6 +43,7 @@ describe('This test suite describes the StatusGateway functionality', () => {
       status : Status['Undefined']
     }
     mockData = {...testData}; //deep copy
+    socket.off();
   });
 
   afterAll( async () => {
@@ -52,52 +53,57 @@ describe('This test suite describes the StatusGateway functionality', () => {
 
   //Improve robustness
     describe('when a status signal arrives', () => {
-      it('can issue an update status notify event',  ( done ) => {
+      it('can issue an update status notify event',  (done) => {
         expect.assertions(1);
         testData.status=Status['Accepted'];
         mockData.status = Status['Undefined'];
-        socket.emit('advance', mockData,(msg) => {
+        socket.on('dispatch',(msg) => {
           expect(msg).toEqual(testData);
           done();
-        });
+        })
+        socket.emit('advance', mockData, );
       });
       it('can issue a rollback status notify event', (done) =>{
         // Only allow if initial state is undefined
         expect.assertions(1);
         testData.status = Status['Rejected'];
         mockData.status = Status['Undefined'];
-        socket.emit('regress', mockData, (msg) => {
+        socket.on('dispatch',(msg) => {
           expect(msg).toEqual(testData);
           done();
-        });
+        })
+        socket.emit('regress', mockData, );
       });
       it('can issue a reject status notify event', (done) =>{
               // Only allow if initial state is undefined
         expect.assertions(1);
         testData.status = Status['Rejected'];
         mockData.status = Status['Undefined'];
-        socket.emit('regress', mockData, (msg) => {
+        socket.on('dispatch',(msg) => {
           expect(msg).toEqual(testData);
           done();
-        });
+        })
+        socket.emit('regress', mockData, );
       });
       it('can issue a reset status notify event', (done) => {
         expect.assertions(1);
         testData.status = Status['Undefined'];
         mockData.status = Status['Rejected'];
-        socket.emit('reset', mockData, (msg) => {
-        expect(msg).toEqual(testData);
-        done();
-        });
+        socket.on('dispatch',(msg) => {
+          expect(msg).toEqual(testData);
+          done();
+        })
+        socket.emit('reset', mockData, );
       });
       it('can issue an actual status notify event', (done) => {
         expect.assertions(1);
         testData.status = Status['Ready'];
         mockData.status = Status['Ready'];
-        socket.emit('actual', mockData, (msg) => {
-        expect(msg).toEqual(testData);
-        done();
-        });
+        socket.on('dispatch',(msg) => {
+          expect(msg).toEqual(testData);
+          done();
+        })
+        socket.emit('actual', mockData, );
       });
     });
   });

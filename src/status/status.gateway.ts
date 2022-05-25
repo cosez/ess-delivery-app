@@ -19,22 +19,22 @@ export class StatusGateway implements OnGatewayConnection, OnGatewayDisconnect {
 
     // advanceStatus(): any{ //CHANGE TO datatype order, all of these
     @SubscribeMessage('advance')
-    handleUpdateEvent(@MessageBody() order: Order, @ConnectedSocket() client: Socket): Order {
-        return this.statusService.promoteStatus(order);
+    handleUpdateEvent(@MessageBody() order: Order, @ConnectedSocket() client: Socket) {
+        this.__socket.emit('dispatch', this.statusService.promoteStatus(order));
     }
 
     @SubscribeMessage('regress')
-    handleRejectEvent(@MessageBody() order: Order, @ConnectedSocket() client: Socket): Order{
-        return this.statusService.demoteStatus(order);
+    handleRejectEvent(@MessageBody() order: Order, @ConnectedSocket() client: Socket){
+        this.__socket.emit('dispatch', this.statusService.demoteStatus(order));
     }
 
     @SubscribeMessage('reset')
-    handleResetEvent(@MessageBody() order: Order, @ConnectedSocket() client: Socket): Order{
-        return this.statusService.resetStatus(order);
+    handleResetEvent(@MessageBody() order: Order, @ConnectedSocket() client: Socket){
+        this.__socket.emit('dispatch', this.statusService.resetStatus(order));
     }
     @SubscribeMessage('actual')
-    handleActualEvent(@MessageBody() order: Order, @ConnectedSocket() client: Socket): Order{
-        return this.statusService.actualStatus(order);
+    handleActualEvent(@MessageBody() order: Order, @ConnectedSocket() client: Socket) {
+        this.__socket.emit('dispatch', this.statusService.actualStatus(order));
     }
 
 }
