@@ -4,7 +4,7 @@ import { filter, fromEvent, Observable, of, switchMap, take, distinctUntilChange
 import { Order, StatusEnum } from '../shared/common';
 import { StatusStore } from './status.store';
 
-const socket = io("ws://localhost:9220");
+const socket = io("ws://localhost:9339");
 
 @Injectable({
   providedIn: 'root',
@@ -15,20 +15,22 @@ export class StatusService {
       id : 2050,
       order_name : "batata recheada",
       restaurant : "Casa da batata",
-      status : StatusEnum['Accepted']
+      status : StatusEnum['Undefined']
     }
 
   constructor (public statusStore: StatusStore) {}
 
   listen(): void{
-    socket.on('dispatch',(msg) => {
+    socket.timeout(50000).on('dispatch',(msg) => {
       this.statusStore.insertStatus(of(msg));
+      socket.emit('forward-server',of(msg)); // Update 'bot' state
     });
   }
 
-
   establishConnection(){
-    socket.emit('advance',this.testData);
+    socket.emit('forward-server',this.testData);
+    socket.emit('advance-test',0);
+    // socket.emit('choice',1);
   }
 
   establishDisconnection(){
