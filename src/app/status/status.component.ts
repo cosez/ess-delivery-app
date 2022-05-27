@@ -1,5 +1,5 @@
 import {  Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
-import { distinct, Observable, take, takeLast, map, distinctUntilKeyChanged, mergeAll, toArray, of, concatAll, distinctUntilChanged } from 'rxjs';
+import { distinct, Observable, take, takeLast, map, distinctUntilKeyChanged, mergeAll, toArray, of, concatAll, distinctUntilChanged, debounceTime } from 'rxjs';
 import {StatusStore} from './status.store';
 import { Order, StatusEnum } from '../shared/common';
 import { StatusService } from './status.service';
@@ -29,7 +29,8 @@ export class StatusComponent implements OnInit, OnDestroy {
   }
 
   logData(): void {
-    this.ss.statusStore.$status.pipe(distinctUntilChanged()).pipe(take(5)).pipe().subscribe(x => console.log(x));
+    this.ss.listen();
+    this.ss.statusStore.$status.pipe(debounceTime(10000)).pipe(mergeAll()).pipe(distinctUntilKeyChanged('status')).pipe(take(4)).subscribe(x => console.log(x));
   }
 
   removeStatus(order: Order) {
