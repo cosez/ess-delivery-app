@@ -6,6 +6,7 @@ import { IoAdapter } from '@nestjs/platform-socket.io';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useWebSocketAdapter(new IoAdapter(app))
-  await app.listen(3000);
+  app.enableShutdownHooks();
+  await app.listen(9339);
 }
 bootstrap();
