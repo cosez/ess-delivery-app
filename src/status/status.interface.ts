@@ -1,4 +1,4 @@
-export enum Status {
+export enum StatusEnum {
     'Rejected',
     'Undefined',
     'Accepted',
@@ -11,5 +11,5 @@ export interface Order  {
     id: number;
     order_name: string;
     restaurant: string;
-    status: Status;
+    status: StatusEnum;
 }
