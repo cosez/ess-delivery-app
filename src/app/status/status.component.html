@@ -1,1 +1,2 @@
-<p>status works!</p>
+<p>{{logData()}}</p>
+<p *ngIf="this.ss.statusStore.$status | async as s">s{{s}}</p>

@@ -1,9 +1,9 @@
 export enum StatusEnum {
   'Rejected',
-  'Undefined',
-  'Accepted',
-  'Preparing' ,
-  'Ready'
+   'Undefined',
+   'Accepted',
+   'Preparing' ,
+   'Ready'
 }
 
 export interface Order  {
