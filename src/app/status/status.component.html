@@ -1,2 +1,20 @@
 <p>{{logData()}}</p>
-<p *ngIf="this.ss.statusStore.$status | async as s">s{{s}}</p>
+<!-- <mat-card class="example-card" *ngIf="let orders of this.ss.statusStore.$status | async">
+     <mat-card-title>Olá {{orders.name}}</mat-card-title>
+     <mat-card-subtitle>Pedido de número:#{{orders.id}}</mat-card-subtitle>
+     <mat-card-content [ngSwitch]="orders.status">
+     <p *ngSwitchCase="statusEnum.Undefined">Isso nao deveria aparecer</p>
+     <p *ngSwitchCase="statusEnum.Accepted">Seu pedido foi aceito por {{orders.restaurant}} e em breve será preparado</p>
+     <p *ngSwitchCase="statusEnum.Preparing">{{orders.restaurant}} começou o preparo</p>
+     <p *ngSwitchCase="statusEnum.Ready">Seu pedido está pronto e em breve chegará até você</p>
+     <p *ngSwitchCase="statusEnum.Rejected">Infelizmente o estabelecimento {{orders.restaurant}} recusou seu pedido</p>
+     </mat-card-content>
+     <mat-card-actions>
+     <button (click)="removeStatus(orders)" mat-raised-button color="primary" *ngIf="orders.status!=statusEnum.Rejected">Clique aqui ou aperte uma tecla para fechar</button> <!--use this for normal state-->
+<!-- <button (click)="removeStatus(orders)" mat-raised-button color="warn" *ngIf="orders.status==statusEnum.Rejected">Clique aqui ou aperte uma tecla para fechar</button> <!--use this for reject state-->
+<!-- </mat-card-actions>
+     <mat-card-footer>
+     <mat-progress-bar mode="determinate" value="calculateProgress(orders)" color="alternative" *ngIf="orders.status!=statusEnum.Rejected"></mat-progress-bar>
+     <mat-progress-bar mode="determinate" value="calculateProgress(orders)" color="warn" *ngIf="orders.status==statusEnum.Rejected"></mat-progress-bar>
+     </mat-card-footer>
+     </mat-card> --> --> -->
