@@ -21,12 +21,15 @@ export class ProfileComponent implements OnInit {
   ];
   error = undefined;
   success = false;
-
+  mensagem_horario = false;
+  senha_modal="";
+  modal_confirmacao = false;
+  senha_incorreta = false;
 
 
   ngOnInit(): void {
-    this.restaurante = this.authenticationService.restaurante;
-    this.restaurante.metodo_pagamento = this.metodos_pagamento;
+   this.restaurante = this.authenticationService.restaurante;
+   this.restaurante.metodo_pagamento = this.metodos_pagamento;
   }
 
 
@@ -38,7 +41,38 @@ export class ProfileComponent implements OnInit {
            }
         })
         .catch(erro => this.catch(erro));
-        this.success = true;
+  }
+
+  disparaModal(s): void{
+      this.modal_confirmacao = s;
+  }
+
+  validaSenhaDigitada(r: Restaurante){
+      if(this.senha_modal == r.senha){
+         this.senha_incorreta = false
+         this.modal_confirmacao = false
+         this.success = true 
+         this.updateRestaurante(r)
+      }else{
+         this.senha_incorreta = true
+      }
+  }
+
+  checkHorario(r: Restaurante): void {
+      const date1 = new Date('2020-01-01 ' + r.horario_fim);
+      const date2 = new Date('2020-01-01 ' + r.horario_inicio);
+   
+   // Verificamos se o primeiro horário é igual, maior ou menor que o segundo
+
+      if (date1.getTime() > date2.getTime()){
+         this.modal_confirmacao =  true;
+         this.mensagem_horario = false;
+
+      }
+      else {
+         this.mensagem_horario = true;
+      
+    }
   }
 
   onCheckBoxChange(e:any, s:String, n:number): void {

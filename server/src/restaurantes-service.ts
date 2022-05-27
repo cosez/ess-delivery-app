@@ -55,6 +55,27 @@ export class RestaurantesService {
   }
 
   update(restaurante: Restaurante) : Restaurante {
+    for (var key of this.campos_req)
+      if (!restaurante[key])
+        throw Error(`O campo de ${this.titulo_campos[key]} não foi preenchido`);
+
+    if(!restaurante.cnpj.match(/^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/))
+      throw Error('O campo de CNPJ está mal formatado ou incompleto');
+
+    if(!restaurante.cep.match(/^\d{5}\-\d{3}$/))
+      throw Error('O campo de CEP está mal formatado ou incompleto');
+
+    if(!restaurante.horario_inicio.match(/^\d{2}\:\d{2}$/))
+      throw Error('O campo de Horário de início está mal formatado ou incompleto');
+
+    if(!restaurante.horario_fim.match(/^\d{2}\:\d{2}$/))
+      throw Error('O campo de Horário de fim está mal formatado ou incompleto');
+
+    if(!restaurante.telefone_responsavel.match(/^\(\d{2}\)\ \d{4,5}\-\d{4}$/))
+      throw Error('O campo de Telefone do Responsável está mal formatado ou incompleto');
+
+    if(!restaurante.email.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/))
+      throw Error('O campo de Email para contato está mal formatado ou incompleto');
     console.log(this.restaurantes)
     var result : Restaurante = this.restaurantes.find(r => r.cnpj == restaurante.cnpj);
     if (result) result.update(restaurante);

@@ -1,4 +1,4 @@
-<div class="profile-wrapper">
+<div *ngIf="!this.modal_confirmacao" class="profile-wrapper">
 
     <div class="header-buttons">
       <button type="button" (click)="backToLogin()" class="btn btn-outline-primary btn-sm"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Voltar</button>
@@ -13,16 +13,16 @@
 
     <ul class="nav nav-tabs">
       <li class="nav-item">
-        <a class="nav-link {{tab === 0 ? 'active':''}}" (click)="switchTab(0)">Sobre</a>
+        <a name="buttonTab0" id="sobre" class="nav-link {{tab === 0 ? 'active':''}}" (click)="switchTab(0)">Sobre</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{tab === 1 ? 'active':''}}" (click)="switchTab(1)">Horários</a>
+        <a name="buttonTab1" id="horarios" class="nav-link {{tab === 1 ? 'active':''}}" (click)="switchTab(1)">Horários</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{tab === 2 ? 'active':''}}" (click)="switchTab(2)">Pagamento</a>
+        <a name="buttonTab2" id="pagamentos" class="nav-link {{tab === 2 ? 'active':''}}" (click)="switchTab(2)">Pagamento</a>
       </li>
       <li *ngIf="editMode" class="nav-item">
-        <a class="nav-link {{tab === 3 ? 'active':''}}" (click)="switchTab(3)">Responsável</a>
+        <a name="buttonTab3" class="nav-link {{tab === 3 ? 'active':''}}" (click)="switchTab(3)">Responsável</a>
       </li>
     </ul>
 
@@ -69,7 +69,7 @@
 
       <div class="buttons-wrapper" *ngIf="editMode">
         <button type="button" (click)="setEditMode(false)" class="btn btn-secondary">Cancelar</button>
-        <button type="button" (click)="updateRestaurante(restaurante)" [disabled]="this.error" class="btn btn-primary">Salvar</button>
+        <button type="button" name="buttonSalvar" (click)="disparaModal(true)" [disabled]="this.error" class="btn btn-primary">Salvar</button>
       </div>
     </form>
     
@@ -81,13 +81,15 @@
         </div>
         <div class="form-group col-md-5">
           <label for="inputEndtTime">Horário de fim</label>
-          <input  [disabled]="!editMode" id="inputEndtTime" type = "text" class="form-control" name="Hora de Fechars" placeholder = "HH:mm A/PM" onfocus = "this.type='time'" [(ngModel)]="restaurante.horario_fim" [disabled]="this.error" value="{{restaurante.horario_fim}}" required>
+          <input  [disabled]="!editMode" id="inputEndtTime" type = "text" class="form-control" name="Hora de Fechar" placeholder = "HH:mm A/PM" onfocus = "this.type='time'" [(ngModel)]="restaurante.horario_fim" [disabled]="this.error" value="{{restaurante.horario_fim}}" required>
         </div>
       </div>
 
+      <h4 name="mensagem horario" *ngIf="this.mensagem_horario" >Horário de abertura maior que horário de encerramento, altere para continuar</h4>
+
       <div class="buttons-wrapper" *ngIf="editMode">
         <button type="button" (click)="setEditMode(false)" class="btn btn-secondary">Cancelar</button>
-        <button type="button" (click)="updateRestaurante(restaurante)" [disabled]="this.error" class="btn btn-primary">Salvar</button>
+        <button type="button" name="buttonSalvar" (click)="checkHorario(restaurante)" [disabled]="this.error" class="btn btn-primary">Salvar</button>
       </div>
     </form>
 
@@ -107,7 +109,7 @@
     </form>
 
     <div class="buttons-wrapper" *ngIf="!editMode">
-      <button type="button" (click)="setEditMode(true)" class="btn btn-primary">Editar</button>
+      <button type="button" id="buttonEditar" (click)="setEditMode(true)" class="btn btn-primary">Editar</button>
       <button type="button" (click)="deleteRestaurant()" class="btn btn-danger">Apagar</button>
     </div>
 
@@ -115,7 +117,7 @@
       <div class="form-row">
         <div class="form-group col-md-7">
           <label for="inputName">Nome do Responsavel</label>
-          <input [disabled]="!editMode" id="inputName" class="form-control"  name="Nome" [(ngModel)]="restaurante.nome_responsavel" [disabled]="this.error" value="{{restaurante.nome_responsavel}}" required>
+          <input [disabled]="!editMode" id="inputName" class="form-control"  name="Nome do Responsavel" [(ngModel)]="restaurante.nome_responsavel" [disabled]="this.error" value="{{restaurante.nome_responsavel}}" required>
         </div>
  
       </div>
@@ -138,7 +140,7 @@
 
       <div class="buttons-wrapper" *ngIf="editMode">
         <button type="button" (click)="setEditMode(false)" class="btn btn-secondary">Cancelar</button>
-        <button type="button" (click)="updateRestaurante(restaurante)" [disabled]="this.error" class="btn btn-primary">Salvar</button>
+        <button type="button" name="buttonSalvar" (click)="disparaModal(true)" [disabled]="this.error" class="btn btn-primary">Salvar</button>
       </div>
     </form>
 
@@ -168,9 +170,22 @@
       </div>
    </div>
 </div>
+
 <div class="popup" *ngIf='this.success'>
    <div class = "success_popup">
-      <div class = "success_text">Cadastro realizado com sucesso</div>
-      <button class="goLogin_button" routerLink="/login">Continuar</button>
+      <div class = "success_text">Edição realizada com sucesso</div>
+      <button class="goLogin_button" routerLink="/">Continuar</button>
    </div>
+</div>
+
+<div class="popup" *ngIf='this.modal_confirmacao'>
+  <div class = "success_popup">
+     <div> Confirme a atualização digitando a sua senha</div>
+     <label *ngIf="!this.senha_incorreta" for="inputSenhaModal">Senha</label>
+      <input *ngIf="!this.senha_incorreta" id="inputSenhaModal" class="form-control" name="Senha Modal" [(ngModel)]="this.senha_modal" required>
+      <p *ngIf="this.senha_incorreta" name="Mensagem Senha" class="erro_senha" >Senha incorreta, digite a senha correta para continuar a atualização</p>
+     <button *ngIf="!this.senha_incorreta" class="goLogin_button" name="buttonContinuarModal" (click)="validaSenhaDigitada(restaurante)" >Continuar</button>
+     <button *ngIf="this.senha_incorreta" class="goLogin_button"  routerLink="/" >Voltar</button>
+
+  </div>
 </div>
